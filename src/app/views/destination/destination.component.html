@@ -44,7 +44,7 @@
         </div>
         <div class="col-md-3">
           <h3>{{ destination.title }}</h3>
-          {{ truncateText(destination.description, 100) }}
+          {{ sharedService.truncateText(destination.description, 100) }}
           <div class="mt-2">
             <a class="btn btn-primary" (click)="goToDetails(destination)"
               >Details</a

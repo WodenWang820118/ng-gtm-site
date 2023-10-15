@@ -11,9 +11,5 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor(public authService: AuthService) {
-    this.authService.getIsLoggedIn().subscribe((isLoggedIn) => {
-      console.log('isLoggedIn', isLoggedIn);
-    });
-  }
+  constructor(public authService: AuthService) {}
 }
