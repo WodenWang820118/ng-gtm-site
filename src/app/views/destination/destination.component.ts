@@ -1,8 +1,8 @@
-import { destinations } from './../../services/destinations';
+import { destinations } from '../../services/destination/destinations';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { DestinationService } from '../../../app/services/destination.service';
+import { DestinationService } from '../../services/destination/destination.service';
 
 @Component({
   selector: 'app-destination',

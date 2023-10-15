@@ -3,10 +3,16 @@
   id="main"
 >
   <div id="msg"></div>
-  <form method="post" id="signInForm">
+  <form [formGroup]="signInForm" id="signInForm" (ngSubmit)="login()">
     <div class="mb-3">
       <label for="login55" class="form-label">Username :</label>
-      <input type="text" class="form-control" name="login" id="login55" />
+      <input
+        type="text"
+        class="form-control"
+        name="login"
+        id="login55"
+        formControlName="username"
+      />
     </div>
     <div class="mb-3">
       <label for="password55" class="form-label">Password :</label>
@@ -15,16 +21,11 @@
         class="form-control"
         name="password"
         id="password55"
+        formControlName="password"
       />
     </div>
     <div class="mb-3">
-      <input
-        type="submit"
-        class="btn btn-primary"
-        name="connexion"
-        value="Sign-in"
-        id="cnx55"
-      />
+      <button class="btn btn-primary">Sign-in</button>
     </div>
   </form>
 </div>

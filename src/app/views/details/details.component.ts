@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import {
   Destination,
   DestinationService,
-} from '../../../app/services/destination.service';
+} from '../../services/destination/destination.service';
 import { Observable } from 'rxjs';
 
 @Component({
