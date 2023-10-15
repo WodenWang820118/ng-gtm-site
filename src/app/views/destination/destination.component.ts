@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination/destination.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-destination',
@@ -15,19 +16,12 @@ export class DestinationComponent {
   destinations = destinations;
   constructor(
     private destinationService: DestinationService,
+    public sharedService: SharedService,
     private router: Router
   ) {}
 
   goToDetails(destination: any): void {
     this.destinationService.changeDestination(destination);
-    this.router.navigate(['/details', destination.title.toLowerCase()]);
-  }
-
-  truncateText(text: string, length: number): string {
-    if (text.length > length) {
-      return text.substring(0, length) + '...';
-    } else {
-      return text;
-    }
+    this.router.navigate(['/details', destination.id]);
   }
 }
