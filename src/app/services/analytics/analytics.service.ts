@@ -115,17 +115,15 @@ export class AnalyticsService {
   handleViewItem(eventName: string, eventData: any): void {
     window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
     const ecommerce = {
-      ecommerce: {
-        items: [
-          {
-            item_id: eventData.id,
-            item_name: eventData.title,
-            item_category: eventData.title,
-            price: eventData.price,
-            quantity: 1,
-          },
-        ],
-      },
+      items: [
+        {
+          item_id: eventData.id,
+          item_name: eventData.title,
+          item_category: eventData.title,
+          price: eventData.price,
+          quantity: 1,
+        },
+      ],
     };
 
     window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
