@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { CarouselComponent } from 'src/app/components/carousel/carousel.component';
-import { DisclaimerComponent } from 'src/app/components/disclaimer/disclaimer.component';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
+import { DisclaimerComponent } from '../../components/disclaimer/disclaimer.component';
+import { SharedModule } from '../../shared.module';
+import { faHome, faGlobe, faTag } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, RouterModule, CarouselComponent, DisclaimerComponent],
+  imports: [SharedModule, CarouselComponent, DisclaimerComponent],
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent {}
+export class MainComponent {
+  faHome = faHome;
+  faGlobe = faGlobe;
+  faTag = faTag;
+}
