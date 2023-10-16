@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { destinations } from '../destination/destinations';
 
 @Injectable({
   providedIn: 'root',
@@ -23,10 +24,36 @@ export class AnalyticsService {
         this.handleViewCart(eventName, eventData);
         break;
       }
+      case 'view_item_list': {
+        this.handleViewItemList(eventName, eventData);
+        break;
+      }
+      case 'view_item': {
+        this.handleViewItem(eventName, eventData);
+        break;
+      }
       default: {
         console.log('Event not tracked:', eventData);
         break;
       }
+    }
+  }
+
+  trackPageView(url: string): void {
+    if (url === '/destinations') {
+      const items = destinations.map((destination) => ({
+        item_id: destination.id,
+        item_name: destination.title,
+        item_category: destination.title,
+        price: destination.price,
+        quantity: 1,
+      }));
+
+      this.trackEvent('view_item_list', {
+        ecommerce: {
+          items,
+        },
+      });
     }
   }
 
@@ -75,6 +102,37 @@ export class AnalyticsService {
         ...promotion,
       });
     }
+  }
+
+  handleViewItemList(eventName: string, eventData: any): void {
+    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
+    window.dataLayer.push({
+      event: eventName,
+      ...eventData,
+    });
+  }
+
+  handleViewItem(eventName: string, eventData: any): void {
+    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
+    const ecommerce = {
+      ecommerce: {
+        items: [
+          {
+            item_id: eventData.id,
+            item_name: eventData.title,
+            item_category: eventData.title,
+            price: eventData.price,
+            quantity: 1,
+          },
+        ],
+      },
+    };
+
+    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
+    window.dataLayer.push({
+      event: eventName,
+      ecommerce,
+    });
   }
 
   handleViewCart(eventName: string, eventData: any): void {
