@@ -35,7 +35,8 @@ export class CarouselComponent {
 
   onSlideChanged(event: any) {
     this.activeSlideIndex = event.from;
-    this.analyticsService.trackPromotion(
+    this.analyticsService.trackEvent(
+      'view_promotion',
       this.destinations[this.activeSlideIndex]
     );
   }

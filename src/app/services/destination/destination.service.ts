@@ -1,28 +1,21 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-export interface Destination {
-  title: string;
-  smallTitle: string;
-  image1: string;
-  image2: string;
-  image3: string;
-  imageBig: string;
-  description: string;
-  route: string;
-}
+import { Destination } from '../../../app/models/destination.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DestinationService {
   private destinationSource = new BehaviorSubject<Destination>({
+    id: '',
     title: '',
     smallTitle: '',
     image1: '',
     image2: '',
     image3: '',
     imageBig: '',
+    imageHuge: '',
+    price: 0,
     description: '',
     route: '',
   });

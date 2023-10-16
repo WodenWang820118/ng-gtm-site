@@ -1,1 +1,36 @@
-<p>basket works!</p>
+<div class="container table-no-col-borders table-striped">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Image</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Travelers</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of basketItems$ | async">
+        <td><img src="{{ item.image }}" /></td>
+        <td>{{ item.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.value }}</td>
+        <td>
+          <fa-icon
+            style="cursor: pointer"
+            (click)="updateCart(item.id)"
+            [icon]="faEdit"
+            size="lg"
+          ></fa-icon>
+          <fa-icon
+            style="cursor: pointer"
+            class="mx-2"
+            (click)="removeFromCart(item.id)"
+            [icon]="faTrashCan"
+            size="lg"
+          ></fa-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

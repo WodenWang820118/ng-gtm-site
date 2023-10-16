@@ -54,7 +54,13 @@
             id="navBasketItems"
             routerLink="/basket"
             routerLinkActive="active"
-            >Basket <span></span
+            (click)="trackViewCart()"
+            >Basket
+            {{
+              (numOfItemsInCart() | async)! > 0
+                ? "(" + (numOfItemsInCart() | async) + ")"
+                : ""
+            }}<span></span
           ></a>
         </li>
       </ul>
