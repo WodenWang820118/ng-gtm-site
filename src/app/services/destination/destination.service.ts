@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Destination } from '../../../app/models/destination.model';
+import { AnalyticsService } from '../analytics/analytics.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,7 @@ export class DestinationService {
   });
   currentDestination = this.destinationSource.asObservable();
 
-  constructor() {
+  constructor(private analyticsService: AnalyticsService) {
     const destination = localStorage.getItem('destination');
     if (destination) {
       this.changeDestination(JSON.parse(destination));
@@ -30,6 +31,7 @@ export class DestinationService {
 
   changeDestination(destination: any): void {
     this.destinationSource.next(destination);
+    this.analyticsService.trackEvent('view_item', destination);
     localStorage.setItem('destination', JSON.stringify(destination));
   }
 }
