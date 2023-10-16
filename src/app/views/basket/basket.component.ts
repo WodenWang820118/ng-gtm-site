@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Order } from 'src/app/models/order.model';
 import { OrderService } from 'src/app/services/order/order.service';
 import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/shared.module';

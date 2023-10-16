@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DisclaimerComponent } from './components/disclaimer/disclaimer.component';
 import { AuthService } from './services/auth/auth.service';
 import { take, tap } from 'rxjs';
+import { UrlTrackerService } from './services/url-tracker/url-tracker.service';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private cookieService: CookieService,
-    private authService: AuthService
+    private authService: AuthService,
+    private urlTrackerService: UrlTrackerService
   ) {}
 
   ngOnInit() {
@@ -47,5 +49,7 @@ export class AppComponent implements OnInit {
         })
       )
       .subscribe();
+
+    this.urlTrackerService.initializeUrlTracking();
   }
 }
