@@ -14,14 +14,14 @@
   <div class="d-flex flex-row">
     <div class="flex-grow-1 p-2">
       <h3>Go to {{ (destination$ | async)?.title }}</h3>
-      <div>
+      <div style="height: 66%">
         <p>
           {{ (destination$ | async)?.description }}
         </p>
       </div>
       <div class="add2Cart">
-        <h4>$799 / 6 Nights</h4>
-        <select class="mx-2">
+        <h4>${{ (destination$ | async)?.price }} / 6 Nights</h4>
+        <select [formControl]="numberOfPersonsControl" class="mx-2">
           <option value="1">1 person</option>
           <option value="2">2 persons</option>
           <option value="3">3 persons</option>
@@ -29,12 +29,13 @@
           <option value="5">5 persons</option>
           <option value="6">6 persons</option>
         </select>
-        <a
-          routerLink="/basket"
-          class="btn btn-primary bookNow"
-          data-name="lanzarote"
-          >Add to Cart</a
+        <button
+          class="btn btn-primary"
+          data-name="{{ (destination$ | async)?.title }}"
+          (click)="addToCart(destination$)"
         >
+          Add to Cart
+        </button>
       </div>
     </div>
     <div class="flex-grow-1 p-3">
