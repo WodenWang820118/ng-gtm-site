@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination/destination.service';
-import { SharedService } from 'src/app/services/shared/shared.service';
+import { SharedService } from '../../services/shared/shared.service';
 
 @Component({
   selector: 'app-destination',

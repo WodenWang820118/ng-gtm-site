@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, take, tap } from 'rxjs';
 import { Destination } from '../../../app/models/destination.model';
 import { AnalyticsService } from '../analytics/analytics.service';
 
@@ -20,18 +20,29 @@ export class DestinationService {
     description: '',
     route: '',
   });
-  currentDestination = this.destinationSource.asObservable();
 
   constructor(private analyticsService: AnalyticsService) {
-    const destination = localStorage.getItem('destination');
-    if (destination) {
-      this.changeDestination(JSON.parse(destination));
-    }
+    this.destinationSource$
+      .pipe(
+        take(1),
+        tap(() => {
+          if (localStorage.getItem('destination')) {
+            this.destinationSource.next(
+              JSON.parse(localStorage.getItem('destination') || '[]')
+            );
+          }
+        })
+      )
+      .subscribe();
   }
 
   changeDestination(destination: any): void {
     this.destinationSource.next(destination);
-    this.analyticsService.trackEvent('view_item', destination);
     localStorage.setItem('destination', JSON.stringify(destination));
+    this.analyticsService.trackEvent('view_item', destination);
+  }
+
+  get destinationSource$() {
+    return this.destinationSource.asObservable();
   }
 }

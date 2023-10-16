@@ -21,7 +21,7 @@ export class DetailsComponent {
   @Input() image3: string = '';
   @Input() description: string = '';
   destination$: Observable<Destination> =
-    this.destinationService.currentDestination;
+    this.destinationService.destinationSource$;
 
   numberOfPersonsControl = new FormControl();
   constructor(
