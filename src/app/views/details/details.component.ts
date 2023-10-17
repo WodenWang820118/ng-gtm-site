@@ -1,16 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import {
-  Destination,
-  DestinationService,
-} from '../../../app/services/destination.service';
+import { Component, Input } from '@angular/core';
+import { DestinationService } from '../../services/destination/destination.service';
 import { Observable } from 'rxjs';
+import { OrderService } from 'src/app/services/order/order.service';
+import { SharedModule } from 'src/app/shared.module';
+import { FormControl } from '@angular/forms';
+import { Destination } from 'src/app/models/destination.model';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [SharedModule],
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
 })
@@ -22,6 +21,16 @@ export class DetailsComponent {
   @Input() image3: string = '';
   @Input() description: string = '';
   destination$: Observable<Destination> =
-    this.destinationService.currentDestination;
-  constructor(public destinationService: DestinationService) {}
+    this.destinationService.destinationSource$;
+
+  numberOfPersonsControl = new FormControl(1);
+  constructor(
+    public destinationService: DestinationService,
+    private orderService: OrderService
+  ) {}
+
+  addToCart(destination: Observable<Destination>): void {
+    const numOfPersons = this.numberOfPersonsControl.value;
+    if (numOfPersons) this.orderService.addToCart(destination, numOfPersons);
+  }
 }
