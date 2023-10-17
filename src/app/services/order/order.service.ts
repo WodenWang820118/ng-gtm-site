@@ -10,6 +10,7 @@ import { AnalyticsService } from '../analytics/analytics.service';
 })
 export class OrderService {
   private _orders = new BehaviorSubject<Order[]>([]);
+  private _totalPrice = this.calculateTotalPrice();
 
   constructor(private analyticsService: AnalyticsService) {
     this.loadInitialData();
@@ -17,6 +18,10 @@ export class OrderService {
 
   get orders$(): Observable<Order[]> {
     return this._orders.asObservable();
+  }
+
+  get totalPrice$(): Observable<number> {
+    return this._totalPrice;
   }
 
   addToCart(destination$: Observable<Destination>, numOfPersons: number): void {
@@ -41,17 +46,31 @@ export class OrderService {
 
           this._orders.next(currentOrders);
           this.storeOrders(currentOrders);
-          this.analyticsService.trackEvent('add_to_cart', order);
+          this.analyticsService.trackEvent('add_to_cart', [order]);
         })
       )
       .subscribe();
   }
 
-  removeFromCart(orderId: string): void {
+  removeFromCart(order: Order): void {
     const currentOrders = this._orders.value;
-    const updatedOrders = currentOrders.filter((order) => order.id !== orderId);
+    const updatedOrders = currentOrders.filter((item) => item.id !== order.id);
     this._orders.next(updatedOrders);
+    this.analyticsService.trackEvent('remove_from_cart', [order]);
     this.storeOrders(updatedOrders);
+  }
+
+  calculateTotalPrice() {
+    return this.orders$.pipe(
+      map((orders) =>
+        orders.reduce((total, order) => total + order.value * order.quantity, 0)
+      )
+    );
+  }
+
+  resetOrders(): void {
+    this._orders.next([]);
+    this.storeOrders([]);
   }
 
   private loadInitialData(): void {
@@ -61,6 +80,7 @@ export class OrderService {
 
   private storeOrders(orders: Order[]): void {
     localStorage.setItem('orders', JSON.stringify(orders));
+    this.analyticsService.setCheckoutOrders(orders);
   }
 
   private createOrder(destination: Destination, numOfPersons: number): Order {
@@ -77,9 +97,11 @@ export class OrderService {
   }
 
   private updateOrderQuantity(order: Order, quantity: number): Order {
+    console.log(order, quantity);
+    console.log(typeof quantity);
     return {
       ...order,
-      quantity: quantity,
+      quantity,
     };
   }
 }

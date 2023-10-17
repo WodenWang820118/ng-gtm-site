@@ -25,7 +25,7 @@ import { UrlTrackerService } from './services/url-tracker/url-tracker.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'ng-55-ats-site';
+  title = 'ng-gtm-site';
 
   constructor(
     private cookieService: CookieService,

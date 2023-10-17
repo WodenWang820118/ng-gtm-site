@@ -23,7 +23,7 @@ export class DetailsComponent {
   destination$: Observable<Destination> =
     this.destinationService.destinationSource$;
 
-  numberOfPersonsControl = new FormControl();
+  numberOfPersonsControl = new FormControl(1);
   constructor(
     public destinationService: DestinationService,
     private orderService: OrderService
@@ -31,6 +31,6 @@ export class DetailsComponent {
 
   addToCart(destination: Observable<Destination>): void {
     const numOfPersons = this.numberOfPersonsControl.value;
-    this.orderService.addToCart(destination, numOfPersons);
+    if (numOfPersons) this.orderService.addToCart(destination, numOfPersons);
   }
 }
