@@ -1,7 +1,7 @@
 import { BehaviorSubject, Observable, catchError, map, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { AnalyticsService } from '../analytics/analytics.service';
 
 interface User {
   username: string;
@@ -15,7 +15,10 @@ export class AuthService {
   private baseUrl = 'http://localhost:3000';
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private analyticsService: AnalyticsService
+  ) {}
 
   login(username: string, password: string): Observable<User | undefined> {
     return this.http.get<User[]>(`${this.baseUrl}/users`).pipe(
@@ -24,14 +27,15 @@ export class AuthService {
         const user = users.find(
           (x) => x.username === username && x.password === password
         );
-        console.log(user);
+
         if (user) {
           // If user is found, login is successful.
           localStorage.setItem('user', JSON.stringify(user));
           localStorage.setItem('isLoggedIn', 'true');
-          console.log('User logged in.');
-          console.log(user);
           this.setIsLoggedIn(true);
+          this.analyticsService.trackEvent('login', {
+            method: 'username/password',
+          });
           return user;
         } else {
           console.log('User not found.');
@@ -51,6 +55,7 @@ export class AuthService {
     localStorage.removeItem('user');
     localStorage.removeItem('isLoggedIn');
     this.setIsLoggedIn(false);
+    this.analyticsService.trackEvent('logout', {});
   }
 
   setIsLoggedIn(value: boolean) {

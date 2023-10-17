@@ -1,5 +1,5 @@
 import { destinations } from './../../services/destination/destinations';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { DestinationService } from '../../services/destination/destination.service';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { AnalyticsService } from '../../services/analytics/analytics.service';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
 })
-export class CarouselComponent {
+export class CarouselComponent implements AfterViewInit {
   destinations = destinations;
   activeSlideIndex = 0;
 
@@ -23,6 +23,15 @@ export class CarouselComponent {
     private analyticsService: AnalyticsService,
     private router: Router
   ) {}
+
+  ngAfterViewInit(): void {
+    // track the first promotion
+    // other promotions will be tracked on slide change
+    this.analyticsService.trackEvent(
+      'view_promotion',
+      this.destinations[this.activeSlideIndex]
+    );
+  }
 
   onSlideChange(newIndex: number): void {
     this.activeSlideIndex = newIndex;
@@ -34,10 +43,15 @@ export class CarouselComponent {
   }
 
   onSlideChanged(event: any) {
-    this.activeSlideIndex = event.from;
+    this.activeSlideIndex = event.to;
     this.analyticsService.trackEvent(
       'view_promotion',
       this.destinations[this.activeSlideIndex]
     );
+  }
+
+  selectPromotion(destination: any): void {
+    console.log('selectPromotion', destination);
+    this.analyticsService.trackEvent('select_promotion', destination);
   }
 }

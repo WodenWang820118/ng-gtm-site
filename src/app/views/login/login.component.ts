@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SharedModule } from 'src/app/shared.module';
 import { Router } from '@angular/router';
@@ -39,7 +39,6 @@ export class LoginComponent {
           tap((user) => {
             take(1);
             if (user) {
-              this.authService.setIsLoggedIn(true);
               this.router.navigate(['/']);
             } else {
               alert('Login failed.');
