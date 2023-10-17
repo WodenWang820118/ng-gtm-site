@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/shared.module';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { Order } from 'src/app/models/order.model';
 
 @Component({
   selector: 'app-basket',
@@ -17,13 +18,17 @@ export class BasketComponent {
   faTrashCan = faTrashCan;
   faEdit = faEdit;
 
-  constructor(private orderService: OrderService, private router: Router) {}
+  constructor(public orderService: OrderService, private router: Router) {}
 
   updateCart(orderId: string) {
     this.router.navigate(['/details', orderId]);
   }
 
-  removeFromCart(orderId: string): void {
-    this.orderService.removeFromCart(orderId);
+  removeFromCart(order: Order): void {
+    this.orderService.removeFromCart(order);
+  }
+
+  calculateTotalPrice() {
+    return this.orderService.calculateTotalPrice();
   }
 }

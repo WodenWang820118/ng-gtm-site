@@ -5,7 +5,9 @@
   <div class="page-header">
     <h2>
       {{ (destination$ | async)?.title }}
-      <small>{{ (destination$ | async)?.smallTitle }}</small
+      <small style="font-size: 18px">{{
+        (destination$ | async)?.smallTitle
+      }}</small
       ><a class="all-destinations" routerLink="/destinations"
         >All Destinations</a
       >
@@ -21,21 +23,26 @@
       </div>
       <div class="add2Cart">
         <h4>${{ (destination$ | async)?.price }} / 6 Nights</h4>
-        <select [formControl]="numberOfPersonsControl" class="mx-2">
-          <option value="1">1 person</option>
-          <option value="2">2 persons</option>
-          <option value="3">3 persons</option>
-          <option value="4">4 persons</option>
-          <option value="5">5 persons</option>
-          <option value="6">6 persons</option>
-        </select>
-        <button
-          class="btn btn-primary"
-          data-name="{{ (destination$ | async)?.title }}"
-          (click)="addToCart(destination$)"
-        >
-          Add to Cart
-        </button>
+        <div class="d-flex justify-content-end">
+          <select
+            [formControl]="numberOfPersonsControl"
+            class="mx-2 form-select"
+          >
+            <option value="1">1 person</option>
+            <option value="2">2 persons</option>
+            <option value="3">3 persons</option>
+            <option value="4">4 persons</option>
+            <option value="5">5 persons</option>
+            <option value="6">6 persons</option>
+          </select>
+          <button
+            class="btn btn-primary"
+            data-name="{{ (destination$ | async)?.title }}"
+            (click)="addToCart(destination$)"
+          >
+            Add to Cart
+          </button>
+        </div>
       </div>
     </div>
     <div class="flex-grow-1 p-3">
