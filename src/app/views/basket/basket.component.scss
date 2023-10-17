@@ -1,0 +1,10 @@
+// patches for bootstrap table
+.table-no-col-borders td,
+.table-no-col-borders th {
+  text-align: center;
+  border: none;
+}
+
+td {
+  vertical-align: middle ;
+}
