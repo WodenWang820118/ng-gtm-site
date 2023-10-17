@@ -24,7 +24,7 @@ export class AnalyticsService {
     }
   }
 
-  trackPageView(url: string): void {
+  trackPageViewECEvent(url: string): void {
     if (url === '/destinations') {
       const items = destinations.map((destination) => ({
         item_id: destination.id,
