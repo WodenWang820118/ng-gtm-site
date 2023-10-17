@@ -11,6 +11,7 @@ import { ViewCartEventTracker } from './analytics-events/view-cart';
 import { ViewItemEventTracker } from './analytics-events/view-item';
 import { ViewPromotionEventTracker } from './analytics-events/view-promotion';
 import { ViewItemListEventTracker } from './analytics-events/view-item-list';
+import { PageViewEventTracker } from './analytics-events/page-view';
 
 export class AnalyticsEventTrackerFactory {
   public createEvent(eventName: string): AnalyticsEventTracker {
@@ -39,6 +40,8 @@ export class AnalyticsEventTrackerFactory {
         return new RefundEventTracker(eventName);
       case 'login':
         return new LoginEventTracker(eventName);
+      case 'page_view':
+        return new PageViewEventTracker(eventName);
       default:
         throw new Error('Invalid event type');
     }
