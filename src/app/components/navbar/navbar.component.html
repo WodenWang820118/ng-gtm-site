@@ -44,7 +44,12 @@
             >
           </ng-container>
           <ng-template #loggedOut>
-            <a class="nav-link" (click)="authService.logout()">Logout</a>
+            <a
+              class="nav-link"
+              (click)="authService.logout()"
+              style="cursor: pointer"
+              >Logout</a
+            >
           </ng-template>
         </li>
 

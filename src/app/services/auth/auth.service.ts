@@ -12,8 +12,10 @@ interface User {
   providedIn: 'root',
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'http://localhost:3000'; // for http mocking
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+  private readonly mockUsername = 'admin';
+  private readonly mockPassword = 'admin';
 
   constructor(
     private http: HttpClient,
@@ -21,34 +23,50 @@ export class AuthService {
   ) {}
 
   login(username: string, password: string): Observable<User | undefined> {
-    return this.http.get<User[]>(`${this.baseUrl}/users`).pipe(
-      map((users) => {
-        console.log('users', users);
-        const user = users.find(
-          (x) => x.username === username && x.password === password
-        );
-
-        if (user) {
-          // If user is found, login is successful.
-          localStorage.setItem('user', JSON.stringify(user));
-          localStorage.setItem('isLoggedIn', 'true');
-          this.setIsLoggedIn(true);
-          this.analyticsService.trackEvent('login', {
-            method: 'username/password',
-          });
-          return user;
-        } else {
-          console.log('User not found.');
-          return undefined;
-        }
-      }),
-      catchError((error) => {
-        // In case of error, login failed.
-        console.error(error.message);
-        return of(undefined);
-      })
-    );
+    if (username === this.mockUsername && password === this.mockPassword) {
+      // If user is found, login is successful.
+      localStorage.setItem('user', JSON.stringify({ username, password }));
+      localStorage.setItem('isLoggedIn', 'true');
+      this.setIsLoggedIn(true);
+      this.analyticsService.trackEvent('login', {
+        method: 'username/password',
+      });
+      return of({ username, password });
+    } else {
+      console.log('User not found.');
+      return of(undefined);
+    }
   }
+
+  // login(username: string, password: string): Observable<User | undefined> {
+  //   return this.http.get<User[]>(`${this.baseUrl}/users`).pipe(
+  //     map((users) => {
+  //       console.log('users', users);
+  //       const user = users.find(
+  //         (x) => x.username === username && x.password === password
+  //       );
+
+  //       if (user) {
+  //         // If user is found, login is successful.
+  //         localStorage.setItem('user', JSON.stringify(user));
+  //         localStorage.setItem('isLoggedIn', 'true');
+  //         this.setIsLoggedIn(true);
+  //         this.analyticsService.trackEvent('login', {
+  //           method: 'username/password',
+  //         });
+  //         return user;
+  //       } else {
+  //         console.log('User not found.');
+  //         return undefined;
+  //       }
+  //     }),
+  //     catchError((error) => {
+  //       // In case of error, login failed.
+  //       console.error(error.message);
+  //       return of(undefined);
+  //     })
+  //   );
+  // }
 
   logout(): void {
     // Logic for logout.
