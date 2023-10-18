@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Order } from 'src/app/models/order.model';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-basket',
@@ -30,5 +31,9 @@ export class BasketComponent {
 
   calculateTotalPrice() {
     return this.orderService.calculateTotalPrice();
+  }
+
+  beginCheckout() {
+    this.orderService.beginCheckout();
   }
 }

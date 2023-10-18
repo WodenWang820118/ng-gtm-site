@@ -13,6 +13,7 @@ import { ViewPromotionEventTracker } from './analytics-events/view-promotion';
 import { ViewItemListEventTracker } from './analytics-events/view-item-list';
 import { PageViewEventTracker } from './analytics-events/page-view';
 import { SelectItemEventTracker } from './analytics-events/select-item';
+import { BeginCheckoutEventTracker } from './analytics-events/begin-checkout';
 
 export class AnalyticsEventTrackerFactory {
   public createEvent(eventName: string): AnalyticsEventTracker {
@@ -45,6 +46,8 @@ export class AnalyticsEventTrackerFactory {
         return new PageViewEventTracker(eventName);
       case 'select_item':
         return new SelectItemEventTracker(eventName);
+      case 'begin_checkout':
+        return new BeginCheckoutEventTracker(eventName);
       default:
         throw new Error('Invalid event type');
     }
