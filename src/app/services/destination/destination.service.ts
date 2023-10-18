@@ -42,6 +42,10 @@ export class DestinationService {
     this.analyticsService.trackEvent('view_item', destination);
   }
 
+  trackSelectItem(destination: any): void {
+    this.analyticsService.trackEvent('select_item', destination);
+  }
+
   get destinationSource$() {
     return this.destinationSource.asObservable();
   }

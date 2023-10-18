@@ -46,7 +46,9 @@
           <h3>{{ destination.title }}</h3>
           {{ sharedService.truncateText(destination.description, 100) }}
           <div class="mt-2">
-            <a class="btn btn-primary" (click)="goToDetails(destination)"
+            <a
+              class="btn btn-primary"
+              (click)="goToDetails(destination); selectItem(destination)"
               >Details</a
             >
             <a
