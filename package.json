@@ -1,5 +1,5 @@
 {
-  "name": "ng-55-ats-site",
+  "name": "ng-gtm-site",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,6 +7,7 @@
     "backend": "json-server --watch db.json",
     "build": "ng build",
     "build-file": "ng build --configuration production --base-href ./",
+    "build-github": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/ && ngh --dir=dist/ng-gtm-site",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -35,6 +36,7 @@
     "@angular/cli": "~16.1.5",
     "@angular/compiler-cli": "^16.1.0",
     "@types/jasmine": "~4.3.0",
+    "angular-cli-ghpages": "^0.6.2",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
