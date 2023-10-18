@@ -20,7 +20,7 @@ export class AddPaymentInfoEventTracker implements AnalyticsEventTracker {
           item_id: item.id,
           item_name: item.title,
           item_category: item.title,
-          quantity: item.quantity,
+          quantity: Number(item.quantity),
           price: item.value,
         })),
       },
