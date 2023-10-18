@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-55-ats-site": {
+    "ng-gtm-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng-55-ats-site",
+            "outputPath": "dist/ng-gtm-site",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ng-55-ats-site:build:production"
+              "browserTarget": "ng-gtm-site:build:production"
             },
             "development": {
-              "browserTarget": "ng-55-ats-site:build:development"
+              "browserTarget": "ng-gtm-site:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng-55-ats-site:build"
+            "browserTarget": "ng-gtm-site:build"
           }
         },
         "test": {
