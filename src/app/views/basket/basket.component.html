@@ -43,7 +43,7 @@
             Total: ${{ calculateTotalPrice() | async }}
           </td>
           <td colspan="2" class="text-center align-middle h3 styled-link">
-            <a routerLink="/checkout">Checkout</a>
+            <a routerLink="/checkout" (click)="beginCheckout()">Checkout</a>
           </td>
         </tr>
       </tfoot>

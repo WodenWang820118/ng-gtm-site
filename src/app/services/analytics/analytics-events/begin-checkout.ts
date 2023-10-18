@@ -1,6 +1,7 @@
+import { Order } from '../../../models/order.model';
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
 
-export class RefundEventTracker implements AnalyticsEventTracker {
+export class BeginCheckoutEventTracker implements AnalyticsEventTracker {
   constructor(private eventName: string) {
     this.eventName = eventName;
   }
@@ -9,17 +10,16 @@ export class RefundEventTracker implements AnalyticsEventTracker {
     if (!eventData.length) return;
     const event = {
       ecommerce: {
-        currency: 'USD',
-        transaction_id: 'gtm-transaction-id-1234',
         value: eventData.reduce(
-          (accumulator: number, currentValue: any) =>
-            accumulator + currentValue.value,
+          (accumulator: number, currentValue: Order) =>
+            accumulator + currentValue.value * currentValue.quantity,
           0
         ),
-        items: eventData.map((item: any) => ({
+        currency: 'USD',
+        items: eventData.map((item: Order) => ({
           item_id: item.id,
           item_name: item.title,
-          item_category: item.category,
+          item_category: item.title,
           quantity: Number(item.quantity),
           price: item.value,
         })),

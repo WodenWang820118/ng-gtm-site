@@ -60,6 +60,10 @@ export class OrderService {
     this.storeOrders(updatedOrders);
   }
 
+  beginCheckout(): void {
+    this.analyticsService.trackEvent('begin_checkout', this._orders.value);
+  }
+
   calculateTotalPrice() {
     return this.orders$.pipe(
       map((orders) =>
