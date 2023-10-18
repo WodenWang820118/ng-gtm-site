@@ -21,7 +21,7 @@ export class PurchaseEventTracker implements AnalyticsEventTracker {
           item_id: item.id,
           item_name: item.title,
           item_category: item.category,
-          quantity: item.quantity,
+          quantity: Number(item.quantity),
           price: item.value,
         })),
       },
