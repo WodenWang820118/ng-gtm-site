@@ -24,4 +24,8 @@ export class DestinationComponent {
     this.destinationService.changeDestination(destination);
     this.router.navigate(['/details', destination.id]);
   }
+
+  selectItem(destination: any): void {
+    this.destinationService.trackSelectItem(destination);
+  }
 }
