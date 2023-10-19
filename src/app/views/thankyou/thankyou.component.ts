@@ -24,17 +24,7 @@ export class ThankyouComponent {
     this.router.navigate(['/']);
   }
 
-  trackPurchase(): void {
-    this.orderService.orders$
-      .pipe(
-        take(1),
-        tap((orders) => {
-          this.analyticsService.trackEvent('purchase', orders);
-        })
-      )
-      .subscribe();
-  }
-
+  // the purchase event is tracked in the analytics service using URL to determine when to track the event
   trackRefund(): void {
     this.orderService.orders$
       .pipe(
