@@ -8,16 +8,18 @@ export class SelectPromotionEventTracker implements AnalyticsEventTracker {
   trackEvent(eventData: any): void {
     if (!eventData) return;
     const promotion = {
-      creative_name: eventData.title,
-      creative_slot: 'featured_destinations',
-      promotion_id: eventData.id,
-      promotion_name: eventData.title,
-      items: [
-        {
-          item_id: eventData.id,
-          item_name: eventData.title,
-        },
-      ],
+      ecommerce: {
+        creative_name: eventData.title,
+        creative_slot: 'featured_destinations',
+        promotion_id: eventData.id,
+        promotion_name: eventData.title,
+        items: [
+          {
+            item_id: eventData.id,
+            item_name: eventData.title,
+          },
+        ],
+      },
     };
 
     window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
