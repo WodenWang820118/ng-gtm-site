@@ -9,7 +9,7 @@ export class ViewCartEventTracker implements AnalyticsEventTracker {
     if (!eventData.length) return;
     const event = {
       ecommerce: {
-        currency: eventData[0].currency,
+        currency: 'USD',
         value: eventData.reduce(
           (accumulator: number, currentValue: any) =>
             accumulator + currentValue.value * currentValue.quantity,
