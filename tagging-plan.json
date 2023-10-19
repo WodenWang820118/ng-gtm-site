@@ -50,6 +50,22 @@
     }
   },
   {
+    "event": "select_item",
+    "ecommerce": {
+      "value": "$value",
+      "currency": "$currency",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
     "event": "view_item",
     "ecommerce": {
       "value": "$value",
