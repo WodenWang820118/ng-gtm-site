@@ -19,7 +19,7 @@
           <a
             ><button
               class="btn btn-inverse"
-              (click)="resetOrders(); trackPurchase()"
+              (click)="trackPurchase(); resetOrders()"
             >
               <h4>Back to Home</h4>
             </button></a
@@ -27,7 +27,7 @@
           <a id="cancelOrder"
             ><button
               class="btn btn-inverse"
-              (click)="resetOrders(); trackRefund()"
+              (click)="trackRefund(); resetOrders()"
             >
               <h4>Cancel Order</h4>
             </button></a
