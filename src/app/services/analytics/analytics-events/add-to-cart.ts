@@ -15,7 +15,7 @@ export class AddToCartEventTracker implements AnalyticsEventTracker {
             accumulator + currentValue.value * currentValue.quantity,
           0
         ),
-        currency: eventData.currency,
+        currency: 'USD',
         items: eventData.map((item: Order) => ({
           item_id: item.id,
           item_name: item.title,
