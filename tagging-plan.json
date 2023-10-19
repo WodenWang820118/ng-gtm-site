@@ -1,0 +1,191 @@
+[
+  {
+    "event": "page_view",
+    "page_path": "$page_path",
+    "page_title": "$page_title",
+    "page_location": "$page_location"
+  },
+  {
+    "event": "view_promotion",
+    "ecommerce": {
+      "creative_name": "$creative_name",
+      "creative_slot": "$creative_slot",
+      "promotion_id": "$promotion_id",
+      "promotion_name": "$promotion_name",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name"
+        }
+      ]
+    }
+  },
+  {
+    "event": "select_promotion",
+    "ecommerce": {
+      "creative_name": "$creative_name",
+      "creative_slot": "$creative_slot",
+      "promotion_id": "$promotion_id",
+      "promotion_name": "$promotion_name",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name"
+        }
+      ]
+    }
+  },
+  {
+    "event": "view_item_list",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "view_item",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "add_to_cart",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "remove_from_cart",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "view_cart",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "begin_checkout",
+    "ecommerce": {
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "add_shipping_info",
+    "ecommerce": {
+      "shipping_tier": "$shipping_tier",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "add_payment_info",
+    "ecommerce": {
+      "payment_type": "$payment_type",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "purchase",
+    "ecommerce": {
+      "transaction_id": "$transaction_id",
+      "affiliation": "$affiliation",
+      "value": "$value",
+      "tax": "$tax",
+      "shipping": "$shipping",
+      "coupon": "$coupon",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  },
+  {
+    "event": "refund",
+    "ecommerce": {
+      "transaction_id": "$transaction_id",
+      "value": "$value",
+      "tax": "$tax",
+      "shipping": "$shipping",
+      "coupon": "$coupon",
+      "items": [
+        {
+          "item_id": "$item_id",
+          "item_name": "$item_name",
+          "item_category": "$item_category",
+          "price": "$price",
+          "quantity": "$quantity"
+        }
+      ]
+    }
+  }
+]
