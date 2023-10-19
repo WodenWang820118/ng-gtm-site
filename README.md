@@ -67,6 +67,10 @@ This section guides you through running this project on your local machine witho
 
 The analytics code is in the `analytics.service.ts` file.
 
+## Quick GTM setup
+
+- In the project files, find the `tagging-plan.json`, and use the [automatic configration tool](https://gtm-config-generator.netlify.app/) to import the file to your GTM account.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
