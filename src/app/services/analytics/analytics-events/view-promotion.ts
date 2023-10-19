@@ -12,7 +12,7 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
   private isPromotionTracked(newPromotion: any): boolean {
     // Assuming that each promotion has a unique 'id' property
     return promotions.some(
-      (item_id) => item_id === newPromotion.items[0]['item_id']
+      (item_id) => item_id === newPromotion.ecommerce.items[0]['item_id']
     );
   }
 
