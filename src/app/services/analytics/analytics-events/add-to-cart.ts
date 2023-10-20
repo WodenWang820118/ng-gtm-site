@@ -19,6 +19,7 @@ export class AddToCartEventTracker implements AnalyticsEventTracker {
         items: eventData.map((item: Order) => ({
           item_id: item.id,
           item_name: item.title,
+          item_list_name: 'destinations', // required for ga4_ecom_attributor
           item_category: item.title,
           quantity: Number(item.quantity),
           price: item.value,
