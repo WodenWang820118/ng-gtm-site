@@ -11,7 +11,7 @@
       data-bs-interval="4000"
       [class.active]="i === 0"
     >
-      <a (click)="goToDetails(destination); selectPromotion(destination)">
+      <a (click)="selectPromotion(destination); goToDetails(destination)">
         <img [src]="destination.imageHuge" class="d-block w-100" alt="" />
         <div class="carousel-caption d-none d-md-block">
           <h4>{{ destination.title }}</h4>
