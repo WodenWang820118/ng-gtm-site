@@ -20,10 +20,10 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
     if (!eventData) return;
     const promotion = {
       ecommerce: {
-        creative_name: eventData.title,
-        creative_slot: 'featured_destinations',
-        promotion_id: eventData.id,
-        promotion_name: eventData.title,
+        promotion_id: eventData.id, // required for ga4_ecom_attributor
+        promotion_name: eventData.title, // required for ga4_ecom_attributor
+        creative_name: 'travel_slide', // required for ga4_ecom_attributor
+        creative_slot: 'featured_attributor', // required for ga4_ecom_attributor
         items: [
           {
             item_id: eventData.id,
