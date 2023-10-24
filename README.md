@@ -23,38 +23,7 @@ For now the app supports:
 
 This section guides you through running this project on your local machine without deep technical knowledge.
 
-### Prerequisites
-
-- [Node.js and npm](https://nodejs.org/en/download) (npm is distributed with Node.js) - Follow the link to download and install them.
-
-### Installation
-
-1. **Download the Project:**
-
-   - [Download the project files](https://github.com/WodenWang820118/ng-gtm-site) and unzip them on your computer.
-
-2. **Install Dependencies:**
-
-   - Open your terminal (you can search for it on your computer if you're not sure where it is).
-   - Use the `cd` command to navigate to the project folder. For example, if you saved it in your `Downloads` folder, you would type `cd Downloads/NgGtmSite`.
-   - Type `npm install` and press `Enter`. This will install the necessary software to run the project.
-
-3. **Prepare the Project:**
-
-   - Still in the terminal, type `npm run build-file` and press `Enter`. This prepares the project to run on your local computer.
-
-4. **Install http-server:**
-
-   - In the same terminal window, type `npm i -g http-server` and press `Enter`. This installs a tool that allows you to view the project in your web browser.
-
-5. **Run the Project:**
-   - Next, navigate to the `dist/ng-gtm-site` folder in the terminal (you may use the `cd` command like before).
-   - Type `http-server -p 8080` and press `Enter`.
-   - Now, open your web browser and type `http://localhost:8080/` in the address bar, then press `Enter`.
-
-### Adding GTM Code
-
-- In the project files, find the `index.html` file. You can insert your GTM code snippet here for testing. [Learn more about getting a GTM code snippet](https://support.google.com/tagmanager/answer/6103696?hl=en).
+Please install [data layer checker extention](https://chrome.google.com/webstore/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke) to inject the GTM ID on the [GitHub page](https://wodenwang820118.github.io/ng-gtm-site/#/). Then, you can send the data back to you GA4 property accordingly.
 
 ## How to use (technical)
 
