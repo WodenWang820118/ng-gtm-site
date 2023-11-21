@@ -13,14 +13,16 @@
       <th>Total</th>
     </tr>
     <tbody>
-      <tr *ngFor="let item of orders$ | async">
-        <td>{{ item.id }}</td>
-        <td>{{ item.category }}</td>
-        <td>{{ item.title }}</td>
-        <td>${{ item.value }}</td>
-        <td>{{ item.quantity }}</td>
-        <td>${{ item.value * item.quantity }}</td>
-      </tr>
+      @for (item of orders$ | async; track item) {
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.category }}</td>
+          <td>{{ item.title }}</td>
+          <td>${{ item.value }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>${{ item.value * item.quantity }}</td>
+        </tr>
+      }
     </tbody>
     <tfoot>
       <tr>
@@ -30,7 +32,6 @@
       </tr>
     </tfoot>
   </table>
-
   <app-shipping-form></app-shipping-form>
   <app-payment-form></app-payment-form>
   <div id="errareMSG"></div>

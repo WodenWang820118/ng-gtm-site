@@ -7,60 +7,79 @@
         href="destinations.html?search=paradise-cities&cat=button"
         class="btn btn-link"
         >Paradise cities</a
-      >
-      <a href="destinations.html?search=islands-in-the-sun&cat=button"
-        >Islands in the sun</a
-      >
-    </div>
-    <form method="get" action="#" id="search_destination">
-      <input
-        type="search"
-        class="form-control"
-        placeholder="Enter a destination..."
-      />
-      <button type="submit" class="btn btn-light ms-2">OK</button>
-    </form>
-  </div>
-</div>
-
-<div class="container" id="destinations">
-  <div id="destinationsVideos"></div>
-  <div id="content-chooser">
-    <div *ngFor="let destination of destinations">
-      <div class="page-header">
-        <h2>
-          {{ destination.title }} <small>{{ destination.smallTitle }} </small>
-        </h2>
+        >
+        <a href="destinations.html?search=islands-in-the-sun&cat=button"
+          >Islands in the sun</a
+          >
+        </div>
+        <form method="get" action="#" id="search_destination">
+          <input type="search" class="form-control" placeholder="Destination..." />
+          <button type="submit" class="btn btn-light ms-2">OK</button>
+        </form>
       </div>
-      <div class="d-flex flex-row justify-content-star mb-3">
-        <div class="col-md-3">
-          <img src="{{ destination.image1 }}" class="img-thumbnail" alt="" />
-        </div>
-        <div class="col-md-3">
-          <img src="{{ destination.image2 }}" class="img-thumbnail" alt="" />
-        </div>
-        <div class="col-md-3">
-          <img src="{{ destination.image3 }}" class="img-thumbnail" alt="" />
-        </div>
-        <div class="col-md-3">
-          <h3>{{ destination.title }}</h3>
-          {{ sharedService.truncateText(destination.description, 100) }}
-          <div class="mt-2">
-            <a
-              class="btn btn-primary"
-              (click)="goToDetails(destination); selectItem(destination)"
-              >Details</a
-            >
-            <a
-              class="btn btn-primary videos mx-2"
-              data-name="{{ destination.title.toLowerCase() }}"
-              href="{{ destination.video }}"
-              target="_blank"
-              >Video</a
-            >
+    </div>
+    <div class="container" id="destinations">
+      <div id="destinationsVideos"></div>
+      <div id="content-chooser">
+        @for (destination of destinations; track destination) {
+          <div>
+            <div class="page-header">
+              <h2>
+              {{ destination.title }} <small>{{ destination.smallTitle }} </small>
+            </h2>
           </div>
+          <div class="d-flex flex-row justify-content-star mb-3">
+            @if (((windowSizeService.width$ | async) ?? 0) > 480) {
+              <div
+                class="col-md-3"
+                >
+                <img src="{{ destination.image1 }}" class="img-thumbnail" alt="" />
+              </div>
+            }
+            @if (((windowSizeService.width$ | async) ?? 0) > 480) {
+              <div
+                class="col-md-3"
+                >
+                <img src="{{ destination.image2 }}" class="img-thumbnail" alt="" />
+              </div>
+            }
+            @if (((windowSizeService.width$ | async) ?? 0) > 480) {
+              <div
+                class="col-md-3"
+                >
+                <img src="{{ destination.image3 }}" class="img-thumbnail" alt="" />
+              </div>
+            }
+            @if (((windowSizeService.width$ | async) ?? 0) <= 480) {
+              <div
+                class="col-6"
+                >
+                <img src="{{ destination.imageBig }}" class="img-thumbnail" alt="" />
+              </div>
+            }
+            <div class="col-md-3">
+              <h3>{{ destination.title }}</h3>
+              <div style="text-align: justify">
+                {{ sharedService.truncateText(destination.description, 100) }}
+              </div>
+              <div class="mt-2">
+                <a
+                  class="btn btn-primary"
+                  (click)="goToDetails(destination); selectItem(destination)"
+                  >Details</a
+                  >
+                  <a
+                    class="btn btn-primary videos mx-2"
+                    data-name="{{ destination.title.toLowerCase() }}"
+                    href="{{ destination.video }}"
+                    target="_blank"
+                    >Video</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
         </div>
       </div>
-    </div>
-  </div>
-</div>
+      
