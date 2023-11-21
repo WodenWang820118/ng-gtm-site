@@ -3,7 +3,10 @@
 </div>
 
 <ng-template #content>
-  <div class="container table-no-col-borders table-striped">
+  <div
+    *ngIf="((windowSizeService.width$ | async) ?? 0) > 480"
+    class="container table-no-col-borders table-striped table-responsive"
+  >
     <table class="table">
       <thead>
         <tr>
@@ -48,5 +51,46 @@
         </tr>
       </tfoot>
     </table>
+  </div>
+  <div
+    *ngIf="((windowSizeService.width$ | async) ?? 0) <= 480"
+    class="container"
+  >
+    <div *ngFor="let item of basketItems$ | async" class="card mb-3">
+      <div class="row g-0">
+        <div class="col-md-4" style="padding: 1rem">
+          <img
+            src="{{ item.image }}"
+            class="img-fluid rounded-start"
+            style="width: 100%"
+            alt="destination-img"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">Travelers: {{ item.quantity }}</p>
+            <p class="card-text">
+              <small>Total Price: ${{ item.value }}</small>
+            </p>
+            <button (click)="updateCart(item.id)" class="btn btn-primary">
+              Edit
+            </button>
+            <button (click)="removeFromCart(item)" class="btn btn-danger mx-2">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="total-price">
+      <h3>Total: ${{ calculateTotalPrice() | async }}</h3>
+      <a
+        routerLink="/checkout"
+        class="btn btn-success"
+        (click)="beginCheckout()"
+        >Proceed to Checkout</a
+      >
+    </div>
   </div>
 </ng-template>

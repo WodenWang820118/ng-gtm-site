@@ -5,11 +5,12 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
 import { OrderService } from 'src/app/services/order/order.service';
 import { map, take, tap } from 'rxjs';
+import { NavbarClickDirective } from 'src/app/directives/navbar-click.directive';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NavbarClickDirective],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
