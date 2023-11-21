@@ -1,0 +1,14 @@
+@import '../../../variables.scss';
+
+@media screen and (max-width: $mobile-max-width) {
+  .rwd-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .rwd-mobile-img {
+    img {
+      display: none;
+    }
+  }
+}
