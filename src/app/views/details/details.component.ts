@@ -5,6 +5,7 @@ import { OrderService } from 'src/app/services/order/order.service';
 import { SharedModule } from 'src/app/shared.module';
 import { FormControl } from '@angular/forms';
 import { Destination } from 'src/app/models/destination.model';
+import { WindowSizeService } from 'src/app/services/window-size/window-size.service';
 
 @Component({
   selector: 'app-details',
@@ -25,6 +26,7 @@ export class DetailsComponent {
 
   numberOfPersonsControl = new FormControl(1);
   constructor(
+    public windowSizeService: WindowSizeService,
     public destinationService: DestinationService,
     private orderService: OrderService
   ) {}
