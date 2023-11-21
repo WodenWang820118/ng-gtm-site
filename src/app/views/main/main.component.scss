@@ -1,0 +1,8 @@
+@import '../../../variables.scss';
+
+@media only screen and (max-width: $mobile-max-width) {
+  .rwd-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+}

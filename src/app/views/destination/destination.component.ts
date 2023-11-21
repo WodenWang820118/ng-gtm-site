@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { DestinationService } from '../../services/destination/destination.service';
 import { SharedService } from '../../services/shared/shared.service';
+import { WindowSizeService } from '../../services/window-size/window-size.service';
 
 @Component({
   selector: 'app-destination',
@@ -17,7 +18,8 @@ export class DestinationComponent {
   constructor(
     private destinationService: DestinationService,
     public sharedService: SharedService,
-    private router: Router
+    private router: Router,
+    public windowSizeService: WindowSizeService
   ) {}
 
   goToDetails(destination: any): void {
