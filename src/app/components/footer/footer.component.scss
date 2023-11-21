@@ -1,0 +1,13 @@
+@import '../../../variables.scss';
+
+@media screen and (max-width: $mobile-max-width) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer #newsletter-form,
+  footer #externalLinks {
+    width: 100%;
+  }
+}
