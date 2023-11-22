@@ -181,6 +181,7 @@
     "event": "purchase",
     "ecommerce": {
       "transaction_id": "$transaction_id",
+      "currency": "$currency",
       "value": "$value",
       "items": [
         {
