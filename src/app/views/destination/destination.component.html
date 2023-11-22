@@ -20,6 +20,7 @@
 </div>
 <div class="container" id="destinations">
   <div id="destinationsVideos"></div>
+  @defer (on viewport) {
   <div id="content-chooser">
     @for (destination of destinations; track destination) {
     <div>
@@ -70,4 +71,7 @@
     </div>
     }
   </div>
+  } @placeholder {
+  <div>Loading..</div>
+  }
 </div>
