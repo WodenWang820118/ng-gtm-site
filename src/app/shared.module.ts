@@ -10,7 +10,7 @@ const coreModules = [
   FormsModule,
   ReactiveFormsModule,
   RouterModule,
-  FontAwesomeModule
+  FontAwesomeModule,
 ];
 
 @NgModule({
