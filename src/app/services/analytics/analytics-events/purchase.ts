@@ -5,7 +5,7 @@ export class PurchaseEventTracker implements AnalyticsEventTracker {
   constructor(private eventName: string) {
     this.eventName = eventName;
   }
-
+  // TODO: implement UUID for transaction_id
   trackEvent(eventData: any): void {
     if (!eventData.length) return;
     const event = {
