@@ -3,24 +3,24 @@ import { destinations } from '../destination/destinations';
 import { AnalyticsEventTrackerFactory } from './analytics-factory';
 import { BehaviorSubject, take, tap } from 'rxjs';
 import { Order } from '../../models/order.model';
-import { JavascriptInterfaceService } from '../javascript-interface/javascript-interface.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnalyticsService {
-  private eventFactory = new AnalyticsEventTrackerFactory();
   private _checkoutOrders = new BehaviorSubject<Order[]>([]);
 
-  constructor(private javascriptInterfaceService: JavascriptInterfaceService) {
+  constructor(
+    private analyticsEventTrackerFactory: AnalyticsEventTrackerFactory
+  ) {
     window.dataLayer = window.dataLayer || [];
   }
 
   trackEvent(eventName: string, eventData: any): void {
     try {
-      const eventTracker = this.eventFactory.createEvent(eventName);
+      const eventTracker =
+        this.analyticsEventTrackerFactory.createEvent(eventName);
       eventTracker.trackEvent(eventData);
-      this.javascriptInterfaceService.logEvent(eventName, eventData);
     } catch (error) {
       console.log('Event not tracked:', eventName, eventData);
     }
