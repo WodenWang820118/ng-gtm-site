@@ -1,7 +1,11 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
+import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class ViewCartEventTracker implements AnalyticsEventTracker {
-  constructor(private eventName: string) {
+  constructor(
+    private eventName: string,
+    private javascriptInterface: JavascriptInterfaceService
+  ) {
     this.eventName = eventName;
   }
 
@@ -29,5 +33,6 @@ export class ViewCartEventTracker implements AnalyticsEventTracker {
       event: this.eventName,
       ...event,
     });
+    this.javascriptInterface.logEvent(this.eventName, event);
   }
 }
