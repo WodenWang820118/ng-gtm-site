@@ -1,11 +1,18 @@
+import { Injectable } from '@angular/core';
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
+import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 const promotions: string[] = [];
 
+// @Injectable({
+//   providedIn: 'root',
+// })
 export class ViewPromotionEventTracker implements AnalyticsEventTracker {
   item_id: string;
-  constructor(private eventName: string) {
-    this.eventName = eventName;
+  constructor(
+    private eventName: string,
+    private javascriptInterface: JavascriptInterfaceService
+  ) {
     this.item_id = '';
   }
 
@@ -18,7 +25,7 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
 
   trackEvent(eventData: any): void {
     if (!eventData) return;
-    const promotion = {
+    const event = {
       ecommerce: {
         promotion_id: eventData.id, // required for ga4_ecom_attributor
         promotion_name: eventData.title, // required for ga4_ecom_attributor
@@ -33,14 +40,15 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
       },
     };
 
-    if (!this.isPromotionTracked(promotion)) {
-      this.item_id = promotion.ecommerce.items[0].item_id;
+    if (!this.isPromotionTracked(event)) {
+      this.item_id = event.ecommerce.items[0].item_id;
       promotions.push(this.item_id);
       window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
       window.dataLayer.push({
         event: this.eventName,
-        ...promotion,
+        ...event,
       });
+      this.javascriptInterface.logEvent(this.eventName, event);
     }
   }
 }

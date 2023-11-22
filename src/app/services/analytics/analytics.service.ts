@@ -8,16 +8,18 @@ import { Order } from '../../models/order.model';
   providedIn: 'root',
 })
 export class AnalyticsService {
-  private eventFactory = new AnalyticsEventTrackerFactory();
   private _checkoutOrders = new BehaviorSubject<Order[]>([]);
 
-  constructor() {
+  constructor(
+    private analyticsEventTrackerFactory: AnalyticsEventTrackerFactory
+  ) {
     window.dataLayer = window.dataLayer || [];
   }
 
   trackEvent(eventName: string, eventData: any): void {
     try {
-      const eventTracker = this.eventFactory.createEvent(eventName);
+      const eventTracker =
+        this.analyticsEventTrackerFactory.createEvent(eventName);
       eventTracker.trackEvent(eventData);
     } catch (error) {
       console.log('Event not tracked:', eventName, eventData);
