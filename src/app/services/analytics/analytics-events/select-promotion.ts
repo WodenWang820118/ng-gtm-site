@@ -1,13 +1,17 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
+import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class SelectPromotionEventTracker implements AnalyticsEventTracker {
-  constructor(private eventName: string) {
+  constructor(
+    private eventName: string,
+    private javascriptInterface: JavascriptInterfaceService
+  ) {
     this.eventName = eventName;
   }
 
   trackEvent(eventData: any): void {
     if (!eventData) return;
-    const promotion = {
+    const event = {
       ecommerce: {
         promotion_id: eventData.id, // required for ga4_ecom_attributor
         promotion_name: eventData.title, // required for ga4_ecom_attributor
@@ -25,7 +29,8 @@ export class SelectPromotionEventTracker implements AnalyticsEventTracker {
     window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
     window.dataLayer.push({
       event: this.eventName,
-      ...promotion,
+      ...event,
     });
+    this.javascriptInterface.logEvent(this.eventName, event);
   }
 }
