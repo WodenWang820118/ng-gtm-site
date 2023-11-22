@@ -1,13 +1,17 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
+import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class ViewItemEventTracker implements AnalyticsEventTracker {
-  constructor(private eventName: string) {
+  constructor(
+    private eventName: string,
+    private javascriptInterface: JavascriptInterfaceService
+  ) {
     this.eventName = eventName;
   }
 
   trackEvent(eventData: any): void {
     if (!eventData) return;
-    const ecommerce = {
+    const event = {
       ecommerce: {
         currency: 'USD',
         value: eventData.price,
@@ -26,7 +30,8 @@ export class ViewItemEventTracker implements AnalyticsEventTracker {
     window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
     window.dataLayer.push({
       event: this.eventName,
-      ...ecommerce,
+      ...event,
     });
+    this.javascriptInterface.logEvent(this.eventName, event);
   }
 }
