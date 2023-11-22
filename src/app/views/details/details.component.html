@@ -8,7 +8,7 @@
       <small style="font-size: 18px">{{
         (destination$ | async)?.smallTitle
       }}</small
-      ><a class="all-destinations" routerLink="/destinations"
+      ><a class="all-destinations" (click)="navigateToDestinations()"
         >All Destinations</a
       >
     </h2>
