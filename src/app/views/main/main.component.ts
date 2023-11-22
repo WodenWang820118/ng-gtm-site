@@ -3,6 +3,7 @@ import { CarouselComponent } from '../../components/carousel/carousel.component'
 import { DisclaimerComponent } from '../../components/disclaimer/disclaimer.component';
 import { SharedModule } from '../../shared.module';
 import { faHome, faGlobe, faTag } from '@fortawesome/free-solid-svg-icons';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-main',
@@ -15,4 +16,10 @@ export class MainComponent {
   faHome = faHome;
   faGlobe = faGlobe;
   faTag = faTag;
+
+  constructor(private navigationService: NavigationService) {}
+
+  navigateToDestinations() {
+    this.navigationService.navigateToDestinations();
+  }
 }

@@ -19,8 +19,8 @@ import { UrlTrackerService } from './services/url-tracker/url-tracker.service';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    DisclaimerComponent
-],
+    DisclaimerComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
