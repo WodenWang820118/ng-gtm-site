@@ -3,22 +3,18 @@
   class="carousel slide"
   data-bs-ride="carousel"
   (slid.bs.carousel)="onSlideChanged($event)"
-  >
+>
   <div class="carousel-inner">
     @for (destination of destinations; track destination; let i = $index) {
-      <div
-        class="carousel-item"
-        data-bs-interval="4000"
-        [class.active]="i === 0"
-        >
-        <a (click)="selectPromotion(destination); goToDetails(destination)">
-          <img [src]="destination.imageHuge" class="d-block w-100" alt="" />
-          <div class="carousel-caption d-none d-md-block">
-            <h4>{{ destination.title }}</h4>
-            <p>{{ sharedService.truncateText(destination.description, 100) }}</p>
-          </div>
-        </a>
-      </div>
+    <div class="carousel-item" data-bs-interval="4000" [class.active]="i === 0">
+      <a (click)="selectPromotion(destination); goToDetails(destination)">
+        <img [src]="destination.imageHuge" class="d-block w-100" alt="" />
+        <div class="carousel-caption d-none d-md-block">
+          <h4>{{ destination.title }}</h4>
+          <p>{{ sharedService.truncateText(destination.description, 100) }}</p>
+        </div>
+      </a>
+    </div>
     }
   </div>
   <button
@@ -26,7 +22,7 @@
     type="button"
     data-bs-target="#myCarousel"
     data-bs-slide="prev"
-    >
+  >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
@@ -35,7 +31,7 @@
     type="button"
     data-bs-target="#myCarousel"
     data-bs-slide="next"
-    >
+  >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
