@@ -6,6 +6,7 @@ import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import { Order } from 'src/app/models/order.model';
 import { WindowSizeService } from 'src/app/services/window-size/window-size.service';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-basket',
@@ -22,8 +23,13 @@ export class BasketComponent {
   constructor(
     public orderService: OrderService,
     private router: Router,
-    public windowSizeService: WindowSizeService
+    public windowSizeService: WindowSizeService,
+    private navigationService: NavigationService
   ) {}
+
+  navigateToBeginCheckout() {
+    this.navigationService.navigateToCheckout();
+  }
 
   updateCart(orderId: string) {
     this.router.navigate(['/details', orderId]);
