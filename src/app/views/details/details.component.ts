@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared.module';
 import { FormControl } from '@angular/forms';
 import { Destination } from 'src/app/models/destination.model';
 import { WindowSizeService } from 'src/app/services/window-size/window-size.service';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-details',
@@ -28,8 +29,13 @@ export class DetailsComponent {
   constructor(
     public windowSizeService: WindowSizeService,
     public destinationService: DestinationService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private navigationService: NavigationService
   ) {}
+
+  navigateToDestinations() {
+    this.navigationService.navigateToDestinations();
+  }
 
   addToCart(destination: Observable<Destination>): void {
     const numOfPersons = this.numberOfPersonsControl.value;

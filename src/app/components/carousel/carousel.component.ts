@@ -2,9 +2,9 @@ import { destinations } from './../../services/destination/destinations';
 import { AfterViewInit, Component } from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { DestinationService } from '../../services/destination/destination.service';
-import { Router } from '@angular/router';
 import { SharedService } from '../../services/shared/shared.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
+import { NavigationService } from '../../../app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-carousel',
@@ -21,7 +21,7 @@ export class CarouselComponent implements AfterViewInit {
     private destinationService: DestinationService,
     public sharedService: SharedService,
     private analyticsService: AnalyticsService,
-    private router: Router
+    private navigationService: NavigationService
   ) {}
 
   ngAfterViewInit(): void {
@@ -39,7 +39,7 @@ export class CarouselComponent implements AfterViewInit {
 
   goToDetails(destination: any): void {
     this.destinationService.changeDestination(destination);
-    this.router.navigate(['/details', destination.id]);
+    this.navigationService.navigateToDetail(destination.id);
   }
 
   onSlideChanged(event: any) {

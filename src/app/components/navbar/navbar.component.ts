@@ -6,6 +6,7 @@ import { AnalyticsService } from 'src/app/services/analytics/analytics.service';
 import { OrderService } from 'src/app/services/order/order.service';
 import { map, take, tap } from 'rxjs';
 import { NavbarClickDirective } from 'src/app/directives/navbar-click.directive';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,8 +19,25 @@ export class NavbarComponent {
   constructor(
     public authService: AuthService,
     private orderService: OrderService,
-    private analyticsService: AnalyticsService
+    private analyticsService: AnalyticsService,
+    private navigationService: NavigationService
   ) {}
+
+  navigateToHome() {
+    this.navigationService.navigateToHome();
+  }
+
+  navigateToDestinations() {
+    this.navigationService.navigateToDestinations();
+  }
+
+  navigateToLogin() {
+    this.navigationService.navigateToLogin();
+  }
+
+  navigateToBasket() {
+    this.navigationService.navigateToBasket();
+  }
 
   trackViewCart(): void {
     this.orderService.orders$
