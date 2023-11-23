@@ -14,6 +14,7 @@ import { ViewItemListEventTracker } from './analytics-events/view-item-list';
 import { PageViewEventTracker } from './analytics-events/page-view';
 import { SelectItemEventTracker } from './analytics-events/select-item';
 import { BeginCheckoutEventTracker } from './analytics-events/begin-checkout';
+import { SearchEventTracker } from './analytics-events/search';
 import { Injectable } from '@angular/core';
 import { JavascriptInterfaceService } from '../javascript-interface/javascript-interface.service';
 
@@ -96,6 +97,11 @@ export class AnalyticsEventTrackerFactory {
         );
       case 'begin_checkout':
         return new BeginCheckoutEventTracker(
+          eventName,
+          this.javascriptInterfaceService
+        );
+      case 'search':
+        return new SearchEventTracker(
           eventName,
           this.javascriptInterfaceService
         );

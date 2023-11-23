@@ -1,19 +1,29 @@
 <div id="destination_filters">
   <div class="container">
     <div id="choix_categories" class="">
-      <!-- TODO: search event -->
-      <a
-        href="destinations.html?search=paradise-cities&cat=button"
-        class="btn btn-link"
-        >Paradise cities</a
+      <a (click)="navigateToSearchResults('all')" class="btn btn-link"
+        >All Destination</a
       >
-      <a href="destinations.html?search=islands-in-the-sun&cat=button"
+      <a (click)="navigateToSearchResults('islands')" class="btn btn-link"
         >Islands in the sun</a
       >
     </div>
-    <form method="get" action="#" id="search_destination">
-      <input type="search" class="form-control" placeholder="Destination..." />
+    <form
+      [formGroup]="searchForm"
+      id="search_destination"
+      (ngSubmit)="onSubmit(searchForm)"
+    >
+      <input
+        formControlName="searchTerm"
+        type="search"
+        class="form-control"
+        placeholder="Destination..."
+      />
+      @if (searchForm.get('searchTerm')?.value) {
       <button type="submit" class="btn btn-light ms-2">OK</button>
+      } @else {
+      <button type="submit" class="btn btn-light ms-2" disabled>OK</button>
+      }
     </form>
   </div>
 </div>
@@ -21,7 +31,7 @@
   <div id="destinationsVideos"></div>
   @defer (on viewport) {
   <div id="content-chooser">
-    @for (destination of destinations; track destination) {
+    @for (destination of destinations | async; track destination) {
     <div>
       <div class="page-header">
         <h2>
