@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { BehaviorSubject, filter, map, mergeMap, tap } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,27 @@ export class NavigationService {
     this.trackSource().subscribe();
   }
 
-  trackSource() {
+  private getMergedQueryParams(additionalParams: any = {}) {
+    // Always include app_source if it's available
+    const queryParams: any = { app_source: this.source };
+
+    // Merge additionalParams only if they are explicitly provided
+    for (const key in additionalParams) {
+      if (additionalParams.hasOwnProperty(key)) {
+        queryParams[key] = additionalParams[key];
+      }
+    }
+
+    return queryParams;
+  }
+
+  private navigate(path: string, additionalParams: any = {}) {
+    this.router.navigate([path], {
+      queryParams: this.getMergedQueryParams(additionalParams),
+    });
+  }
+
+  private trackSource() {
     return this.activatedRoute.queryParams.pipe(
       tap((params) => {
         if (params['app_source']) {
@@ -25,51 +45,36 @@ export class NavigationService {
   }
 
   navigateToHome() {
-    this.router.navigate(['/'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate('/');
   }
 
   navigateToDestinations() {
-    this.router.navigate(['/destinations'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate('/destinations');
   }
 
   navigateToDetail(id: string) {
-    this.router.navigate(['/details', id], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate(`/details/${id}`);
   }
 
   navigateToBasket() {
-    this.router.navigate(['/basket'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate('/basket');
   }
 
   navigateToLogin() {
-    this.router.navigate(['/login'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate('/login');
   }
 
   navigateToThankYou() {
-    this.router.navigate(['/thankyou'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
-    });
+    this.navigate('/thankyou');
   }
 
   navigateToCheckout() {
-    this.router.navigate(['/checkout'], {
-      queryParams: { app_source: this.source },
-      queryParamsHandling: 'merge',
+    this.navigate('/checkout');
+  }
+
+  navigateToDestinationResults(query: string) {
+    this.navigate('/destinations', {
+      search_term: query,
     });
   }
 }
