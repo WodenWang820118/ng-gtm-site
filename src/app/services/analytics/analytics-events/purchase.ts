@@ -1,6 +1,7 @@
 import { Order } from '../../../models/order.model';
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
 import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
+import { v4 as uuidv4 } from 'uuid';
 
 export class PurchaseEventTracker implements AnalyticsEventTracker {
   constructor(
@@ -9,13 +10,12 @@ export class PurchaseEventTracker implements AnalyticsEventTracker {
   ) {
     this.eventName = eventName;
   }
-  // TODO: implement UUID for transaction_id
   trackEvent(eventData: any): void {
     if (!eventData.length) return;
     const event = {
       ecommerce: {
         currency: 'USD',
-        transaction_id: 'gtm-transaction-id-1234',
+        transaction_id: this.generateTransactionId(),
         value: eventData.reduce(
           (accumulator: number, currentValue: any) =>
             accumulator + currentValue.value,
@@ -36,5 +36,9 @@ export class PurchaseEventTracker implements AnalyticsEventTracker {
       ...event,
     });
     this.javascriptInterface.logEvent(this.eventName, event);
+  }
+
+  generateTransactionId(): string {
+    return uuidv4();
   }
 }
