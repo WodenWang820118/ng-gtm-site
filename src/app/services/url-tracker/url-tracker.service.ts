@@ -21,7 +21,6 @@ export class UrlTrackerService {
         )
       )
       .subscribe((e: RouterEvent) => {
-        // TODO: track page view within this service
         this.analyticsService.trackPageViewECEvent(e.url);
 
         if (e.url === '/') {
