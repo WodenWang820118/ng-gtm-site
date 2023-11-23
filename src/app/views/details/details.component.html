@@ -2,13 +2,16 @@
   id="content-{{ (destination$ | async)?.title?.toLowerCase() }}"
   class="container"
 >
-  <div class="page-header">
+  <div class="page-header rwd-page-header">
     <h2>
       {{ (destination$ | async)?.title }}
       <small style="font-size: 18px">{{
         (destination$ | async)?.smallTitle
-      }}</small
-      ><a class="all-destinations" (click)="navigateToDestinations()"
+      }}</small>
+      <br />
+      <a
+        class="all-destinations rwd-all-destinations"
+        (click)="navigateToDestinations()"
         >All Destinations</a
       >
     </h2>
@@ -54,7 +57,7 @@
         />
       </div>
       @if ((windowSizeService.width$ | async) ?? 0 > 480) {
-      <div class="d-flex flex-row">
+      <div class="d-flex flex-row justify-content-center mx-3">
         <div class="flex-grow-1 img-thumbnail">
           <img src="{{ (destination$ | async)?.image2 }}" alt="" />
         </div>
