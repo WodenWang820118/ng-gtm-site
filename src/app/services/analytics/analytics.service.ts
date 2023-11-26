@@ -43,7 +43,7 @@ export class AnalyticsService {
       });
     }
 
-    if (url === '/thankyou') {
+    if (url.includes('/thankyou')) {
       // mimic a purchase event after a successful checkout
       this._checkoutOrders
         .pipe(
