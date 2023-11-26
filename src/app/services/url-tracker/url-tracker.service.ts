@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AnalyticsService } from '../analytics/analytics.service';
 import { NavigationEnd, Router, RouterEvent } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { destinations } from '../destination/destinations';
 
 @Injectable({
   providedIn: 'root',
@@ -23,40 +22,40 @@ export class UrlTrackerService {
       .subscribe((e: RouterEvent) => {
         this.analyticsService.trackPageViewECEvent(e.url);
 
-        if (e.url === '/') {
-          this.analyticsService.trackEvent('page_view', {
-            page_path: e.url,
-            page_title: 'Home',
-            page_location: window.location.href,
-          });
-        } else if (e.url === '/destinations') {
+        if (e.url.includes('/destinations')) {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
             page_title: 'Destinations',
             page_location: window.location.href,
           });
-        } else if (e.url === '/thankyou') {
+        } else if (e.url.includes('/thankyou')) {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
             page_title: 'Thank You',
             page_location: window.location.href,
           });
-        } else if (e.url === '/detail') {
+        } else if (e.url.includes('/detail')) {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
             page_title: 'Detail',
             page_location: window.location.href,
           });
-        } else if (e.url === '/basket') {
+        } else if (e.url.includes('/basket')) {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
             page_title: 'Basket',
             page_location: window.location.href,
           });
-        } else if (e.url === '/login') {
+        } else if (e.url.includes('/login')) {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
             page_title: 'Login',
+            page_location: window.location.href,
+          });
+        } else {
+          this.analyticsService.trackEvent('page_view', {
+            page_path: e.url,
+            page_title: 'HOME',
             page_location: window.location.href,
           });
         }
