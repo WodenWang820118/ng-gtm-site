@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { OrderService } from 'src/app/services/order/order.service';
-import { Router } from '@angular/router';
 import { SharedModule } from 'src/app/shared.module';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
@@ -22,7 +21,6 @@ export class BasketComponent {
 
   constructor(
     public orderService: OrderService,
-    private router: Router,
     public windowSizeService: WindowSizeService,
     private navigationService: NavigationService
   ) {}
@@ -32,7 +30,7 @@ export class BasketComponent {
   }
 
   updateCart(orderId: string) {
-    this.router.navigate(['/details', orderId]);
+    this.navigationService.navigateToDetail(orderId);
   }
 
   removeFromCart(order: Order): void {

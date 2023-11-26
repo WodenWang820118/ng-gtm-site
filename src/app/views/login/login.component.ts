@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SharedModule } from 'src/app/shared.module';
-import { Router } from '@angular/router';
 import { take, tap } from 'rxjs';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +20,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private navigationService: NavigationService
   ) {}
 
   login() {
@@ -39,7 +39,7 @@ export class LoginComponent {
           tap((user) => {
             take(1);
             if (user) {
-              this.router.navigate(['/']);
+              this.navigationService.navigateToHome();
             } else {
               alert('Login failed.');
             }
