@@ -27,7 +27,7 @@ export class AnalyticsService {
   }
 
   trackPageViewECEvent(url: string): void {
-    if (url === '/destinations') {
+    if (url.includes('/destinations')) {
       const items = destinations.map((destination) => ({
         item_id: destination.id,
         item_name: destination.title,
@@ -43,7 +43,7 @@ export class AnalyticsService {
       });
     }
 
-    if (url === '/thankyou') {
+    if (url.includes('/thankyou')) {
       // mimic a purchase event after a successful checkout
       this._checkoutOrders
         .pipe(
