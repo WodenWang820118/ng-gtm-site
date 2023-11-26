@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { OrderService } from '../../services/order/order.service';
 import { SharedModule } from 'src/app/shared.module';
-import { Router } from '@angular/router';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
 import { take, tap } from 'rxjs';
+import { NavigationService } from 'src/app/services/navigation/navigation.service';
 
 @Component({
   selector: 'app-thankyou',
@@ -15,13 +15,13 @@ import { take, tap } from 'rxjs';
 export class ThankyouComponent {
   constructor(
     public orderService: OrderService,
-    private router: Router,
-    private analyticsService: AnalyticsService
+    private analyticsService: AnalyticsService,
+    private navigationService: NavigationService
   ) {}
 
   resetOrders(): void {
     this.orderService.resetOrders();
-    this.router.navigate(['/']);
+    this.navigationService.navigateToHome();
   }
 
   // the purchase event is tracked in the analytics service using URL to determine when to track the event
