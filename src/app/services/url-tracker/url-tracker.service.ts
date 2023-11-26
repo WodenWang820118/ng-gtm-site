@@ -61,7 +61,7 @@ export class UrlTrackerService {
         } else {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
-            page_title: 'HOME',
+            page_title: 'Home',
             page_location: window.location.href,
           });
         }
