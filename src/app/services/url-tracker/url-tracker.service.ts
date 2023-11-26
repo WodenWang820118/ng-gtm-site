@@ -52,6 +52,12 @@ export class UrlTrackerService {
             page_title: 'Login',
             page_location: window.location.href,
           });
+        } else if (e.url.includes('/checkout')) {
+          this.analyticsService.trackEvent('page_view', {
+            page_path: e.url,
+            page_title: 'Checkout',
+            page_location: window.location.href,
+          });
         } else {
           this.analyticsService.trackEvent('page_view', {
             page_path: e.url,
