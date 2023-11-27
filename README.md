@@ -65,4 +65,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Build
 
 Run `npm run build-file` to generate the local file with [http-server](https://github.com/http-party/http-server).
-Run `npm run build-github` to generate the GitHub page.
+Run `npm run build-github` to generate the GitHub page. Remember to change the repo to your own.
