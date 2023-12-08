@@ -1,3 +1,3 @@
 export interface AnalyticsEventTracker {
-  trackEvent(eventData: any): void;
+  getProcessedData(rawEventData: any): any;
 }
