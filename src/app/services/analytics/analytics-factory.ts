@@ -16,95 +16,46 @@ import { SelectItemEventTracker } from './analytics-events/select-item';
 import { BeginCheckoutEventTracker } from './analytics-events/begin-checkout';
 import { SearchEventTracker } from './analytics-events/search';
 import { Injectable } from '@angular/core';
-import { JavascriptInterfaceService } from '../javascript-interface/javascript-interface.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AnalyticsEventTrackerFactory {
-  constructor(private javascriptInterfaceService: JavascriptInterfaceService) {}
+  constructor() {}
   public createEvent(eventName: string): AnalyticsEventTracker {
     switch (eventName) {
       case 'add_to_cart':
-        return new AddToCartEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new AddToCartEventTracker(eventName);
       case 'remove_from_cart':
-        return new RemoveFromCartEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new RemoveFromCartEventTracker(eventName);
       case 'view_promotion':
-        return new ViewPromotionEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new ViewPromotionEventTracker(eventName);
       case 'select_promotion':
-        return new SelectPromotionEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new SelectPromotionEventTracker(eventName);
       case 'view_item_list':
-        return new ViewItemListEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new ViewItemListEventTracker(eventName);
       case 'view_item':
-        return new ViewItemEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new ViewItemEventTracker(eventName);
       case 'view_cart':
-        return new ViewCartEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new ViewCartEventTracker(eventName);
       case 'add_shipping_info':
-        return new AddShippingInfoEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new AddShippingInfoEventTracker(eventName);
       case 'add_payment_info':
-        return new AddPaymentInfoEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new AddPaymentInfoEventTracker(eventName);
       case 'purchase':
-        return new PurchaseEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new PurchaseEventTracker(eventName);
       case 'refund':
-        return new RefundEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new RefundEventTracker(eventName);
       case 'login':
-        return new LoginEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new LoginEventTracker(eventName);
       case 'page_view':
-        return new PageViewEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new PageViewEventTracker(eventName);
       case 'select_item':
-        return new SelectItemEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new SelectItemEventTracker(eventName);
       case 'begin_checkout':
-        return new BeginCheckoutEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new BeginCheckoutEventTracker(eventName);
       case 'search':
-        return new SearchEventTracker(
-          eventName,
-          this.javascriptInterfaceService
-        );
+        return new SearchEventTracker(eventName);
       default:
         throw new Error('Invalid event type');
     }
