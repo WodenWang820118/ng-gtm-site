@@ -1,27 +1,24 @@
 import { Order } from '../../../models/order.model';
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
-import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 import { v4 as uuidv4 } from 'uuid';
 
 export class PurchaseEventTracker implements AnalyticsEventTracker {
-  constructor(
-    private eventName: string,
-    private javascriptInterface: JavascriptInterfaceService
-  ) {
+  constructor(private eventName: string) {
     this.eventName = eventName;
   }
-  trackEvent(eventData: any): void {
-    if (!eventData.length) return;
+
+  getProcessedData(rawEventData: any) {
+    if (!rawEventData.length) return;
     const event = {
       ecommerce: {
         currency: 'USD',
         transaction_id: this.generateTransactionId(),
-        value: eventData.reduce(
+        value: rawEventData.reduce(
           (accumulator: number, currentValue: any) =>
             accumulator + currentValue.value,
           0
         ),
-        items: eventData.map((item: Order) => ({
+        items: rawEventData.map((item: Order) => ({
           item_id: item.id,
           item_name: item.title,
           item_category: item.category,
@@ -30,12 +27,10 @@ export class PurchaseEventTracker implements AnalyticsEventTracker {
         })),
       },
     };
-    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
-    window.dataLayer.push({
-      event: this.eventName,
-      ...event,
-    });
-    this.javascriptInterface.logEvent(this.eventName, event);
+
+    return {
+      eventData: event,
+    };
   }
 
   generateTransactionId(): string {

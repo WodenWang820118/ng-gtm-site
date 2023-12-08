@@ -58,6 +58,18 @@ The events data sent from the website to Flutter/Android/iOS are in the same for
 
 Be aware of the data types of the parameters. For instance, inconsistent `value` parameter types such as double from the website and integer in Flutter will cause the `purchase` event to fail to send.
 
+## PWA (Progressive Web App)
+
+A Progressive Web App (PWA) is designed to work offline, mimicking a native app experience on the user's device. To ensure important analytics data isn't lost when users are offline, [Dexie.js](https://dexie.org/) is utilized to store data in IndexedDB. Once the user is back online, the stored data is sent to the GA4 property through `window.dataLayer.push()`, adhering to Google Tag Manager (GTM) practices. For more details about PWAs and their capabilities, refer to the [PWA documentation](https://web.dev/progressive-web-apps/). Please also refer to the Angular service worker [documentation](https://angular.io/guide/service-worker-intro) for more implementation details.
+
+Use the following steps to test the PWA functionality:
+
+1. Run `ng build` to build the project.
+2. Use `http-server` and run `npx http-server -p 8080 -c-1 dist/ng-gtm-site`
+3. Follow and click the port number link in the terminal to open the PWA.
+4. Turn off the network and trigger some events.
+5. Turn on the network and check the events in the data layer object.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
