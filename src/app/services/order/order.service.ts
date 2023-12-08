@@ -101,8 +101,6 @@ export class OrderService {
   }
 
   private updateOrderQuantity(order: Order, quantity: number): Order {
-    console.log(order, quantity);
-    console.log(typeof quantity);
     return {
       ...order,
       quantity,
