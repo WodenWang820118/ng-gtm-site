@@ -1,26 +1,23 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
-import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class RefundEventTracker implements AnalyticsEventTracker {
-  constructor(
-    private eventName: string,
-    private javascriptInterface: JavascriptInterfaceService
-  ) {
+  constructor(private eventName: string) {
     this.eventName = eventName;
   }
 
-  trackEvent(eventData: any): void {
-    if (!eventData.length) return;
+  // TODO: the transaction id should be the same as the one used in the purchase event
+  getProcessedData(rawEventData: any) {
+    if (!rawEventData.length) return;
     const event = {
       ecommerce: {
         currency: 'USD',
         transaction_id: 'gtm-transaction-id-1234',
-        value: eventData.reduce(
+        value: rawEventData.reduce(
           (accumulator: number, currentValue: any) =>
             accumulator + currentValue.value,
           0
         ),
-        items: eventData.map((item: any) => ({
+        items: rawEventData.map((item: any) => ({
           item_id: item.id,
           item_name: item.title,
           item_category: item.category,
@@ -29,11 +26,9 @@ export class RefundEventTracker implements AnalyticsEventTracker {
         })),
       },
     };
-    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
-    window.dataLayer.push({
-      event: this.eventName,
-      ...event,
-    });
-    this.javascriptInterface.logEvent(this.eventName, event);
+
+    return {
+      eventData: event,
+    };
   }
 }
