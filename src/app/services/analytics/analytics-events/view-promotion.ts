@@ -9,10 +9,7 @@ const promotions: string[] = [];
 // })
 export class ViewPromotionEventTracker implements AnalyticsEventTracker {
   item_id: string;
-  constructor(
-    private eventName: string,
-    private javascriptInterface: JavascriptInterfaceService
-  ) {
+  constructor(private eventName: string) {
     this.item_id = '';
   }
 
@@ -23,18 +20,19 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
     );
   }
 
-  trackEvent(eventData: any): void {
-    if (!eventData) return;
+  getProcessedData(rawEventData: any) {
+    if (!rawEventData) return;
+
     const event = {
       ecommerce: {
-        promotion_id: eventData.id, // required for ga4_ecom_attributor
-        promotion_name: eventData.title, // required for ga4_ecom_attributor
+        promotion_id: rawEventData.id, // required for ga4_ecom_attributor
+        promotion_name: rawEventData.title, // required for ga4_ecom_attributor
         creative_name: 'travel_slide', // required for ga4_ecom_attributor
         creative_slot: 'featured_attributor', // required for ga4_ecom_attributor
         items: [
           {
-            item_id: eventData.id,
-            item_name: eventData.title,
+            item_id: rawEventData.id,
+            item_name: rawEventData.title,
           },
         ],
       },
@@ -43,12 +41,14 @@ export class ViewPromotionEventTracker implements AnalyticsEventTracker {
     if (!this.isPromotionTracked(event)) {
       this.item_id = event.ecommerce.items[0].item_id;
       promotions.push(this.item_id);
-      window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
-      window.dataLayer.push({
-        event: this.eventName,
-        ...event,
-      });
-      this.javascriptInterface.logEvent(this.eventName, event);
+
+      return {
+        eventData: event,
+      };
     }
+
+    return {
+      eventData: '',
+    };
   }
 }

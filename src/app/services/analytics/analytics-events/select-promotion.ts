@@ -1,15 +1,11 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
-import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class SelectPromotionEventTracker implements AnalyticsEventTracker {
-  constructor(
-    private eventName: string,
-    private javascriptInterface: JavascriptInterfaceService
-  ) {
+  constructor(private eventName: string) {
     this.eventName = eventName;
   }
 
-  trackEvent(eventData: any): void {
+  getProcessedData(eventData: any) {
     if (!eventData) return;
     const event = {
       ecommerce: {
@@ -26,11 +22,8 @@ export class SelectPromotionEventTracker implements AnalyticsEventTracker {
       },
     };
 
-    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
-    window.dataLayer.push({
-      event: this.eventName,
-      ...event,
-    });
-    this.javascriptInterface.logEvent(this.eventName, event);
+    return {
+      eventData: event,
+    };
   }
 }

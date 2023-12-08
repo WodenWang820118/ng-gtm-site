@@ -1,37 +1,30 @@
 import { AnalyticsEventTracker } from '../../../models/analytics-event-tracker.model';
-import { JavascriptInterfaceService } from '../../javascript-interface/javascript-interface.service';
 
 export class SelectItemEventTracker implements AnalyticsEventTracker {
-  constructor(
-    private eventName: string,
-    private javascriptInterface: JavascriptInterfaceService
-  ) {
+  constructor(private eventName: string) {
     this.eventName = eventName;
   }
 
-  trackEvent(eventData: any): void {
-    if (!eventData) return;
+  getProcessedData(rawEventData: any) {
+    if (!rawEventData) return;
     const event = {
       ecommerce: {
         currency: 'USD',
-        value: eventData.price,
+        value: rawEventData.price,
         items: [
           {
-            item_id: eventData.id,
-            item_name: eventData.title,
-            item_category: eventData.title,
-            price: eventData.price,
+            item_id: rawEventData.id,
+            item_name: rawEventData.title,
+            item_category: rawEventData.title,
+            price: rawEventData.price,
             quantity: 1,
           },
         ],
       },
     };
 
-    window.dataLayer.push({ ecommerce: null }); // Clear the previous ecommerce object (if any
-    window.dataLayer.push({
-      event: this.eventName,
-      ...event,
-    });
-    this.javascriptInterface.logEvent(this.eventName, event);
+    return {
+      eventData: event,
+    };
   }
 }
