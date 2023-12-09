@@ -1,6 +1,20 @@
 # NgGtmSite: Angular Google Tag Manager Integration Sample
 
-# Overview
+## Table of Contents
+
+- [Overview](#overview)
+- [How to Use (For Non-technical Users)](#how-to-use-for-non-technical-users)
+- [How to use (technical)](#how-to-use-technical)
+- [Quick GTM setup](#quick-gtm-setup)
+- [Javascript interface](#javascript-interface)
+- [Data streams differentiation](#data-streams-differentiation)
+- [Firebase SDK](#firebase-sdk)
+- [PWA (Progressive Web App)](#pwa-progressive-web-app)
+- [YouTube video tracking](#youtube-video-tracking)
+- [Development server](#development-server)
+- [Build](#build)
+
+## Overview
 
 This project demonstrates a simple implementation of Google Tag Manager (GTM) with an Angular application. It showcases various GTM events like `page_view`, `view_promotion`, and more, to help you understand and test GTM integration in a real-world scenario.
 
@@ -69,6 +83,10 @@ Use the following steps to test the PWA functionality:
 3. Follow and click the port number link in the terminal to open the PWA.
 4. Turn off the network and trigger some events.
 5. Turn on the network and check the events in the data layer object.
+
+## YouTube video tracking
+
+Please follow the documentation in the [YouTube Player API Reference for iframe Embeds](https://developers.google.com/youtube/iframe_api_reference) to set up YouTube video tracking. The project utilizes Angular's [youtube-player component](https://github.com/angular/components) to streamline the integration process. However, due to CORS policy restrictions, the YouTube iframe is unable to perform `postMessage` actions and use [enhanced measurement](https://support.google.com/analytics/answer/9216061?hl=en) to transmit data to the data layer. To address this, it is necessary to modify the Content Security Policy (CSP) to permit these actions from the YouTube iframe. For detailed guidance on configuring CSP, please refer to the [Content Security Policy (CSP) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
 
 ## Development server
 
