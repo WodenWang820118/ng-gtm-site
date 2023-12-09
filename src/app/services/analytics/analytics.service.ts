@@ -47,7 +47,7 @@ export class AnalyticsService {
         return of('');
       }
       // all other events
-      window.dataLayer.push({ event: eventName, eventData });
+      window.dataLayer.push({ event: eventName, ...eventData });
       this.javascriptInterfaceService.logEvent(eventName, eventData);
       return of('');
     }
