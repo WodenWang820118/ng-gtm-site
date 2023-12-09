@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <head>
+      <meta
+        http-equiv="Content-Security-Policy"
+        content="
+        default-src 'self'; 
+        style-src * 'unsafe-inline'; 
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://www.googletagmanager.com; 
+        img-src * data: 'unsafe-inline'; 
+        connect-src * 'unsafe-inline'; 
+        frame-src 'self' https://www.youtube.com;
+        font-src * 'unsafe-inline';
+    "
+      />
+    </head>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -15,17 +31,18 @@
       })(window, document, "script", "dataLayer", "GTM-NBMX2DWS");
     </script>
     <!-- End Google Tag Manager -->
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>ng-gtm-Site</title>
-    <base href="/"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-    <link rel="manifest" href="manifest.webmanifest">
-  <meta name="theme-color" content="#1976d2">
-</head>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#1976d2" />
+  </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe
+    <noscript
+      ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-NBMX2DWS"
         height="0"
         width="0"
