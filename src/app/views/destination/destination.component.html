@@ -70,10 +70,36 @@
             <a
               class="btn btn-primary videos mx-2"
               data-name="{{ destination.title.toLowerCase() }}"
-              href="{{ destination.video }}"
-              target="_blank"
+              (click)="showModal(destination.video)"
               >Video</a
             >
+
+            <!-- The Modal -->
+            @if(showVideoPlayer) {
+            <div
+              #ytPlayerModal
+              id="yt-player-modal"
+              [ngClass]="{
+                'show-modal': showVideoPlayer,
+                'hide-modal': !showVideoPlayer
+              }"
+              class="modal"
+            >
+              <!-- Modal content -->
+              <div class="modal-content">
+                <youtube-player
+                  #player
+                  [id]="'yt-player-' + videoId"
+                  class="video-player"
+                  [videoId]="videoId"
+                  [playerVars]="playerVars"
+                  disablePlaceholder="true"
+                  placeholderButtonLabel="destination intro video"
+                />
+                <span class="close" (click)="closeModal()">&times;</span>
+              </div>
+            </div>
+            }
           </div>
         </div>
       </div>
