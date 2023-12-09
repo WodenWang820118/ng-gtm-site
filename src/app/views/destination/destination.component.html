@@ -73,9 +73,7 @@
               (click)="showModal(destination.video)"
               >Video</a
             >
-
-            <!-- The Modal -->
-            @if(showVideoPlayer) {
+            @if (showVideoPlayer) {
             <div
               #ytPlayerModal
               id="yt-player-modal"
@@ -83,7 +81,7 @@
                 'show-modal': showVideoPlayer,
                 'hide-modal': !showVideoPlayer
               }"
-              class="modal"
+              class="modal rwd-mobile"
             >
               <!-- Modal content -->
               <div class="modal-content">

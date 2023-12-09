@@ -16,7 +16,6 @@
   overflow: auto;
 }
 
-// TODO: media query for mobile
 /* Modal Content */
 .modal-content {
   display: flex;
@@ -26,10 +25,21 @@
   padding-left: 2rem;
   padding-bottom: 2rem;
   width: 50vw;
+
+  @media screen and (max-width: 480px) {
+    width: 100vw;
+  }
 }
 
 .video-player {
   margin-top: 2rem;
+
+  @media screen and (max-width: 480px) {
+    > iframe {
+      width: 360px;
+      height: 56.25vw;
+    }
+  }
 }
 
 // /* The Close Button */
