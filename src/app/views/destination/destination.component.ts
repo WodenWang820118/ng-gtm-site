@@ -73,7 +73,7 @@ export class DestinationComponent {
 
   closeModal() {
     this.showVideoPlayer = false;
-    this.videoPlayer.nativeElement.pauseVideo();
+    this.videoPlayer.pauseVideo();
   }
 
   showModal(url: string) {
