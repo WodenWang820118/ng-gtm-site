@@ -29,7 +29,7 @@ export class DestinationComponent {
 
   @ViewChild('ytPlayerModal') ytPlayerModal!: ElementRef;
   @ViewChild('player') videoPlayer: any;
-  videoId = 'g0mwkiXIaBo';
+  videoId = '';
   showVideoPlayer = false;
   playerVars = {
     enablejsapi: 1,
