@@ -29,7 +29,7 @@ export class DestinationComponent {
 
   @ViewChild('ytPlayerModal') ytPlayerModal!: ElementRef;
   @ViewChild('player') videoPlayer: any;
-  videoId = 'g0mwkiXIaBo';
+  videoId = '';
   showVideoPlayer = false;
   playerVars = {
     enablejsapi: 1,
@@ -73,7 +73,7 @@ export class DestinationComponent {
 
   closeModal() {
     this.showVideoPlayer = false;
-    this.videoPlayer.pauseVideo();
+    this.videoPlayer.nativeElement.pauseVideo();
   }
 
   showModal(url: string) {
