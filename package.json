@@ -8,8 +8,7 @@
     "build": "ng build ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/",
     "build-file": "ng build --configuration production --base-href ./",
     "build-github": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/ && ngh --dir=dist/ng-gtm-site",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "ng build --watch --configuration development"
   },
   "private": true,
   "dependencies": {
