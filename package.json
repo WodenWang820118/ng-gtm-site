@@ -5,10 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "backend": "json-server --watch db.json",
-    "build": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/",
+    "build": "ng build --configuration production",
     "build-file": "ng build --configuration production --base-href ./",
     "build-github": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/ && ngh --dir=dist/ng-gtm-site",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
