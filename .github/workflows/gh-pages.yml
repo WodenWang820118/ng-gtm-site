@@ -20,8 +20,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: build docs
-        run: npm run build-docs
+      - name: copy and rename README.md
+        run: npm run copy-readme
 
       - name: Build
         run: npm run build
