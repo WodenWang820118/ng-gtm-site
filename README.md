@@ -13,6 +13,8 @@
 - [YouTube video tracking](#youtube-video-tracking)
 - [Development server](#development-server)
 - [Build](#build)
+- [Documentation as a static site (Experimental)](#documentation-as-a-static-site-experimental)
+- [License](#license)
 
 ## Overview
 
@@ -97,3 +99,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - Run `npm run build-file` to generate the local file with [http-server](https://github.com/http-party/http-server).
 - Run `npm run build-github` to generate the GitHub page. Remember to change the repo to your own.
 - By allowing Workflow permissions, the GitHub page will be automatically updated after pushing the code to the `main` branch.
+
+## Documentation as a static site (Experimental)
+
+Utilizing [Docusaurus](https://docusaurus.io/), this project's [REAEMD.md](https://ng-gtm-site-docs.netlify.app/) is transformed into a static website, which is hosted via Netlify. It is designed specifically for non-technical users, providing an easy-to-understand overview of the project and topics related to GTM, without the need for familiarity with GitHub or GitLab.
+
+## License
+
+MIT
