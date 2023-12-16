@@ -6,6 +6,8 @@
     "start": "ng serve",
     "backend": "json-server --watch db.json",
     "build": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/",
+    "copy-readme": "cp ../../README.md ../../my-website/docs/ng-gtm-site.md",
+    "build-docs": "npm run copy-readme && cd ./my-website && npm run build && cd ..",
     "build-file": "ng build --configuration production --base-href ./",
     "build-github": "ng build --configuration production --base-href https://wodenwang820118.github.io/ng-gtm-site/ && ngh --dir=dist/ng-gtm-site",
     "watch": "ng build --watch --configuration development",
