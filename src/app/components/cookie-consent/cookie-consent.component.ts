@@ -126,4 +126,8 @@ export class CookieConsentComponent implements AfterViewInit {
   switchModal() {
     this.showModal = !this.showModal;
   }
+
+  consent() {
+    this.consentService.hasConsent();
+  }
 }
