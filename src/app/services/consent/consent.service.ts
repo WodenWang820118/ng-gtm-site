@@ -20,6 +20,8 @@ export class ConsentService {
   });
 
   consentPreferences$ = this.consentPreferencesSubject.asObservable();
+  consentSubject = new BehaviorSubject<boolean>(false);
+  consent$ = this.consentSubject.asObservable();
 
   constructor() {}
 
@@ -95,5 +97,9 @@ export class ConsentService {
       event: 'update_consent',
       ...consentPreferencesDataLayer,
     });
+  }
+
+  hasConsent() {
+    this.consentSubject.next(true);
   }
 }

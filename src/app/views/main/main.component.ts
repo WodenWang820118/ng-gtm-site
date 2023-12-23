@@ -8,8 +8,10 @@ import {
   faTag,
   faCookie,
 } from '@fortawesome/free-solid-svg-icons';
-import { NavigationService } from 'src/app/services/navigation/navigation.service';
-import { CookieConsentComponent } from 'src/app/components/cookie-consent/cookie-consent.component';
+import { NavigationService } from '../../services/navigation/navigation.service';
+import { CookieConsentComponent } from '../../components/cookie-consent/cookie-consent.component';
+import { ConsentService } from '../../services/consent/consent.service';
+import { take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -23,16 +25,34 @@ import { CookieConsentComponent } from 'src/app/components/cookie-consent/cookie
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent {
+export class MainComponent implements AfterViewInit {
   faHome = faHome;
   faGlobe = faGlobe;
   faTag = faTag;
   faCookie = faCookie;
-  showCookieConsent: boolean = false;
+  showCookieModal: boolean = false;
   @ViewChild(CookieConsentComponent)
   cookieConsentComponent!: CookieConsentComponent;
 
-  constructor(private navigationService: NavigationService) {}
+  constructor(
+    private navigationService: NavigationService,
+    private consentService: ConsentService
+  ) {}
+
+  ngAfterViewInit(): void {
+    this.consentService.consent$
+      .pipe(
+        take(1),
+        tap((consent) => {
+          if (consent) {
+            this.showCookieModal = false;
+          } else {
+            this.showCookieModal = true;
+          }
+        })
+      )
+      .subscribe();
+  }
 
   navigateToDestinations() {
     this.navigationService.navigateToDestinations();
