@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  Type,
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
@@ -9,9 +10,10 @@ import { SharedService } from '../../services/shared/shared.service';
 import { WindowSizeService } from '../../services/window-size/window-size.service';
 import { NavigationService } from '../../../app/services/navigation/navigation.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import { SharedModule } from 'src/app/shared.module';
-import { SearchService } from 'src/app/services/search/search.service';
+import { SharedModule } from '../../shared.module';
+import { SearchService } from '../../services/search/search.service';
 import { YouTubePlayerModule } from '@angular/youtube-player';
+import { YoutubeService } from '../../services/youtube/youtube.service';
 
 @Component({
   selector: 'app-destination',
@@ -29,6 +31,7 @@ export class DestinationComponent {
 
   @ViewChild('ytPlayerModal') ytPlayerModal!: ElementRef;
   @ViewChild('player') videoPlayer: any;
+  currentComponent: Type<any> | null = null;
   videoId = '';
   showVideoPlayer = false;
   playerVars = {
@@ -40,7 +43,8 @@ export class DestinationComponent {
     public sharedService: SharedService,
     public windowSizeService: WindowSizeService,
     private navigationService: NavigationService,
-    public searchService: SearchService
+    public searchService: SearchService,
+    private youtubeService: YoutubeService
   ) {}
 
   navigateToHome() {
@@ -71,13 +75,22 @@ export class DestinationComponent {
     return url.split('/')[url.split('/').length - 1];
   }
 
+  get currentVideoId(): string {
+    return this.videoId;
+  }
+
   closeModal() {
     this.showVideoPlayer = false;
     this.videoPlayer.pauseVideo();
+    this.youtubeService.stopProgressTracking();
   }
 
   showModal(url: string) {
     this.videoId = this.getVideoId(url);
     this.showVideoPlayer = true;
+  }
+
+  onStateChange(event: any) {
+    this.youtubeService.trackVideoEvent(event);
   }
 }

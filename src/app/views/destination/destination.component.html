@@ -73,7 +73,7 @@
               (click)="showModal(destination.video)"
               >Video</a
             >
-            @if (showVideoPlayer) {
+            @if (videoId === getVideoId(destination.video)) {
             <div
               #ytPlayerModal
               id="yt-player-modal"
@@ -91,6 +91,7 @@
                   class="video-player"
                   [videoId]="videoId"
                   [playerVars]="playerVars"
+                  (stateChange)="onStateChange($event)"
                   disablePlaceholder="true"
                   placeholderButtonLabel="destination intro video"
                 />
