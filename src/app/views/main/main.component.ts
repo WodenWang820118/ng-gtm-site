@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { DisclaimerComponent } from '../../components/disclaimer/disclaimer.component';
 import { SharedModule } from '../../shared.module';
@@ -25,12 +25,12 @@ import { take, tap } from 'rxjs';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent implements AfterViewInit {
+export class MainComponent implements OnInit {
   faHome = faHome;
   faGlobe = faGlobe;
   faTag = faTag;
   faCookie = faCookie;
-  showCookieModal: boolean = false;
+  showCookieModal!: boolean;
   @ViewChild(CookieConsentComponent)
   cookieConsentComponent!: CookieConsentComponent;
 
@@ -39,7 +39,7 @@ export class MainComponent implements AfterViewInit {
     private consentService: ConsentService
   ) {}
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.consentService.consent$
       .pipe(
         take(1),
