@@ -1,4 +1,9 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+} from '@angular/core';
 import { SharedModule } from '../../shared.module';
 import { faCookie } from '@fortawesome/free-solid-svg-icons';
 import { ConsentService } from '../../services/consent/consent.service';
@@ -10,6 +15,7 @@ import { take, tap } from 'rxjs';
   imports: [SharedModule],
   templateUrl: './cookie-consent.component.html',
   styleUrl: './cookie-consent.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CookieConsentComponent implements AfterViewInit {
   @Input() showModal: boolean = false;
