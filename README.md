@@ -65,6 +65,12 @@ The [Javascript interface](https://firebase.google.com/docs/analytics/webview?pl
 
 ## Data streams differentiation
 
+### Overview
+
+Sometimes we want to reuse the website and embed it in the Android/iOS application. The data in the app (Android/iOS) should be separated from the website. The project demonstrates how to differentiate the data streams from the website and the Android/iOS application.
+
+### Methodology
+
 The basic methodology in the project cached a query parameter, `app_source`, and in GTM, we can use a custom Javascript variable `app_source` variable to differentiate the data stream. For example, `http://localhost:4200/?app_source=app` is the data stream for the Android/iOS application, and `http://localhost:4200/` is by default the data stream for the web application.
 
 Checking GTM tags via GTM preview mode is straightforward. There could be another way to differentiate data streams such as checking registered window objects from Flutter/Android/iOS, but not obvious.
@@ -89,7 +95,15 @@ Use the following steps to test the PWA functionality:
 
 ## YouTube video tracking
 
-Please follow the documentation in the [YouTube Player API Reference for iframe Embeds](https://developers.google.com/youtube/iframe_api_reference) to set up YouTube video tracking. The project utilizes Angular's [youtube-player component](https://github.com/angular/components) to streamline the integration process. However, due to CORS policy restrictions, the YouTube iframe is unable to perform `postMessage` actions and use [enhanced measurement](https://support.google.com/analytics/answer/9216061?hl=en) to transmit data to the data layer. To address this, it is necessary to modify the Content Security Policy (CSP) to permit these actions from the YouTube iframe. For detailed guidance on configuring CSP, please refer to the [Content Security Policy (CSP) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+Please follow the documentation in the [YouTube Player API Reference for iframe Embeds](https://developers.google.com/youtube/iframe_api_reference) to set up YouTube video tracking. The project utilizes Angular's [youtube-player component](https://github.com/angular/components) to streamline the integration process.
+
+### Enhanced measurement
+
+Due to CORS policy restrictions, the YouTube iframe is unable to perform `postMessage` actions and use [enhanced measurement](https://support.google.com/analytics/answer/9216061?hl=en) to transmit data to the data layer. To address this, it is necessary to modify the Content Security Policy (CSP) to permit these actions from the YouTube iframe. For detailed guidance on configuring CSP, please refer to the [Content Security Policy (CSP) documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP).
+
+### Data stream differentiation issue
+
+The enhanced measurement is unable to [differentiate data streams](#data-streams-differentiation). To address this, the project implements events manually according to API. The details are in the `services/youtube/youtube.service.ts` file.
 
 ## Consent mode v2
 
