@@ -77,16 +77,16 @@ export const destinations = [
     smallTitle: 'California - The city by the bay - Usa',
     image1: './assets/images/san_francisco_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@sortino target="_blank" rel="nooperer noreferrer">Joshua Sortino</a> on <a href="https://unsplash.com/photos/lined-of-white-and-blue-concrete-buildings-HadloobmnQs target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@sortino" target="_blank" rel="nooperer noreferrer">Joshua Sortino</a> on <a href="https://unsplash.com/photos/lined-of-white-and-blue-concrete-buildings-HadloobmnQs" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/san_francisco_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@shenpan target="_blank" rel="nooperer noreferrer">Shen Pan</a> on <a href="https://unsplash.com/photos/city-buildings-under-blue-sky-during-daytime-IWXxaPTzsyM target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@shenpan" target="_blank" rel="nooperer noreferrer">Shen Pan</a> on <a href="https://unsplash.com/photos/city-buildings-under-blue-sky-during-daytime-IWXxaPTzsyM" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/san_francisco_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@sortino target="_blank" rel="nooperer noreferrer">Joshua Sortino</a> on <a href="https://unsplash.com/photos/aerial-photography-of-boat-harbour-during-daytime-rtWuP5gJB18 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@sortino" target="_blank" rel="nooperer noreferrer">Joshua Sortino</a> on <a href="https://unsplash.com/photos/aerial-photography-of-boat-harbour-during-daytime-rtWuP5gJB18" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/san_francisco_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@pixeldan target="_blank" rel="nooperer noreferrer">Daniel Abadia</a> on <a href="https://unsplash.com/photos/two-white-and-yellow-train-cabs-3hslPaZKqUM target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@pixeldan" target="_blank" rel="nooperer noreferrer">Daniel Abadia</a> on <a href="https://unsplash.com/photos/two-white-and-yellow-train-cabs-3hslPaZKqUM" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 799,
     video: 'https://www.youtube.com/embed/OO1NYarwqa0',
     description: `San Francisco, officially the City and County of San Francisco and colloquially known as SF, San Fran, Frisco, or The City, is the cultural, commercial, and financial center of Northern California. San Francisco is the 16th most populous city in the United States, and the fourth most populous in California, with 881,549 residents as of 2019. It covers an area of about 46.89 square miles (121.4 km2), mostly at the north end of the San Francisco Peninsula in the San Francisco Bay Area, making it the second most densely populated large U.S. city, and the fifth most densely populated U.S. county, behind only four of the five New York City boroughs. San Francisco is part of the 12th-largest metropolitan statistical area in the United States by population, with 4.7 million people, and the fourth-largest by economic output, with GDP of $592 billion in 2019. With San Jose, it forms the fifth most populous combined statistical area in the United States, the San Jose–San Francisco–Oakland, CA Combined Statistical Area.`,
@@ -97,16 +97,16 @@ export const destinations = [
     smallTitle: 'France - Europe',
     image1: './assets/images/paris_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@ettocl target="_blank" rel="nooperer noreferrer">Léonard Cotte</a> on <a href="https://unsplash.com/photos/bridge-during-night-time-R5scocnOOdM target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@ettocl" target="_blank" rel="nooperer noreferrer">Léonard Cotte</a> on <a href="https://unsplash.com/photos/bridge-during-night-time-R5scocnOOdM" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/paris_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@allewollenalex target="_blank" rel="nooperer noreferrer">Alexander Kagan</a> on <a href="https://unsplash.com/photos/high-rise-buildings-during-daytime-t9Td0zfDTwI target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@allewollenalex" target="_blank" rel="nooperer noreferrer">Alexander Kagan</a> on <a href="https://unsplash.com/photos/high-rise-buildings-during-daytime-t9Td0zfDTwI" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/paris_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@heytowner target="_blank" rel="nooperer noreferrer">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/gray-landmark-building-UO02gAW3c0c target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@heytowner" target="_blank" rel="nooperer noreferrer">JOHN TOWNER</a> on <a href="https://unsplash.com/photos/gray-landmark-building-UO02gAW3c0c" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/paris_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@kugnharski target="_blank" rel="nooperer noreferrer">Rodrigo Kugnharski</a> on <a href="https://unsplash.com/photos/aerial-view-photography-of-city-pdWc5wm1STw target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@kugnharski" target="_blank" rel="nooperer noreferrer">Rodrigo Kugnharski</a> on <a href="https://unsplash.com/photos/aerial-view-photography-of-city-pdWc5wm1STw" target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 999,
     video: 'https://www.youtube.com/embed/AQ6GmpMu5L8',
     bigImgAuthorInfo: '',
@@ -119,16 +119,16 @@ export const destinations = [
     smallTitle: 'Canary Islands - Spain - Europe',
     image1: './assets/images/lanzarote_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@kugnharski target="_blank" rel="nooperer noreferrer">Rodrigo Kugnharski</a> on <a href="https://unsplash.com/photos/aerial-view-photography-of-city-pdWc5wm1STw target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@kugnharski" target="_blank" rel="nooperer noreferrer">Rodrigo Kugnharski</a> on <a href="https://unsplash.com/photos/aerial-view-photography-of-city-pdWc5wm1STw target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/lanzarote_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@ashyda target="_blank" rel="nooperer noreferrer">Zinah Insignia</a> on <a href="https://unsplash.com/photos/brown-mountain-near-body-of-water-under-blue-sky-during-daytime-Kzd9UqhaMjU target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@ashyda" target="_blank" rel="nooperer noreferrer">Zinah Insignia</a> on <a href="https://unsplash.com/photos/brown-mountain-near-body-of-water-under-blue-sky-during-daytime-Kzd9UqhaMjU target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/lanzarote_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@tmokuenko target="_blank" rel="nooperer noreferrer">Thibault Mokuenko</a> on <a href="https://unsplash.com/photos/a-sandy-beach-with-clear-blue-water-next-to-a-cliff-d2G9J4twi6Y target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@tmokuenko" target="_blank" rel="nooperer noreferrer">Thibault Mokuenko</a> on <a href="https://unsplash.com/photos/a-sandy-beach-with-clear-blue-water-next-to-a-cliff-d2G9J4twi6Y target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/lanzarote_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@jpfiles_av target="_blank" rel="nooperer noreferrer">JP Files</a> on <a href="https://unsplash.com/photos/photography-of-lake-beside-mountain-and-seashore-during-daytime-GcjPDAyQWi8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@jpfiles_av" target="_blank" rel="nooperer noreferrer">JP Files</a> on <a href="https://unsplash.com/photos/photography-of-lake-beside-mountain-and-seashore-during-daytime-GcjPDAyQWi8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 799,
     video: 'https://www.youtube.com/embed/AX8uI7seMW0',
     description:
@@ -140,16 +140,16 @@ export const destinations = [
     smallTitle: 'Balearic Islands - Spain - Europe',
     image1: './assets/images/mallorca_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@eugenezhyvchik target="_blank" rel="nooperer noreferrer">Eugene Zhyvchik</a> on <a href="https://unsplash.com/photos/white-and-blue-boat-on-sea-near-green-mountain-during-daytime-P_nM4HIeX8Y target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@eugenezhyvchik" target="_blank" rel="nooperer noreferrer">Eugene Zhyvchik</a> on <a href="https://unsplash.com/photos/white-and-blue-boat-on-sea-near-green-mountain-during-daytime-P_nM4HIeX8Y target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/mallorca_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@djnickotronic target="_blank" rel="nooperer noreferrer">DJ Nick Otronic</a> on <a href="https://unsplash.com/photos/green-and-brown-mountain-beside-blue-sea-under-blue-sky-during-daytime-jJT1cnE4SZ8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@djnickotronic" target="_blank" rel="nooperer noreferrer">DJ Nick Otronic</a> on <a href="https://unsplash.com/photos/green-and-brown-mountain-beside-blue-sea-under-blue-sky-during-daytime-jJT1cnE4SZ8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/mallorca_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@fabirwe target="_blank" rel="nooperer noreferrer">Fabian Schneidereit</a> on <a href="https://unsplash.com/photos/white-and-brown-concrete-building-on-top-of-mountain-during-daytime-fpiiJxQ1YVc target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@fabirwe" target="_blank" rel="nooperer noreferrer">Fabian Schneidereit</a> on <a href="https://unsplash.com/photos/white-and-brown-concrete-building-on-top-of-mountain-during-daytime-fpiiJxQ1YVc target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/mallorca_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@tompodmore86 target="_blank" rel="nooperer noreferrer">Tom Podmore</a> on <a href="https://unsplash.com/photos/brown-concrete-building-near-body-of-water-during-daytime-SaW5DBItJHI target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@tompodmore86" target="_blank" rel="nooperer noreferrer">Tom Podmore</a> on <a href="https://unsplash.com/photos/brown-concrete-building-near-body-of-water-during-daytime-SaW5DBItJHI target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 799,
     video: 'https://www.youtube.com/embed/9R38Xx5Va1Q',
     description: `Mallorca or Majorca is the largest island in the Balearic Islands, which are part of Spain and located in the Mediterranean. The native language, as on the rest of the Balearic Islands, is Catalan, which is co-official with Spanish.`,
@@ -161,16 +161,16 @@ export const destinations = [
     smallTitle: 'Caribbean, West Indies',
     image1: './assets/images/puerto_rico_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@fotowei target="_blank" rel="nooperer noreferrer">Wei Zeng</a> on <a href="https://unsplash.com/photos/city-near-body-of-water-during-daytime-48iZAbNgU8U target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@fotowei" target="_blank" rel="nooperer noreferrer">Wei Zeng</a> on <a href="https://unsplash.com/photos/city-near-body-of-water-during-daytime-48iZAbNgU8U target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/puerto_rico_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@thetaikun target="_blank" rel="nooperer noreferrer">J. Amill Santiago</a> on <a href="https://unsplash.com/photos/black-and-white-door-on-brown-brick-wall-n2ZB09ug4NQ target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@thetaikun" target="_blank" rel="nooperer noreferrer">J. Amill Santiago</a> on <a href="https://unsplash.com/photos/black-and-white-door-on-brown-brick-wall-n2ZB09ug4NQ target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/puerto_rico_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@furicz target="_blank" rel="nooperer noreferrer">Zixi Zhou</a> on <a href="https://unsplash.com/photos/people-walking-on-street-during-daytime-zq08xWkBgsI target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@furicz" target="_blank" rel="nooperer noreferrer">Zixi Zhou</a> on <a href="https://unsplash.com/photos/people-walking-on-street-during-daytime-zq08xWkBgsI target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/puerto_rico_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@jonlampel target="_blank" rel="nooperer noreferrer">Jonathan Lampel</a> on <a href="https://unsplash.com/photos/brown-rock-formation-on-sea-under-blue-sky-during-daytime-HbKDro4HrAY target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@jonlampel" target="_blank" rel="nooperer noreferrer">Jonathan Lampel</a> on <a href="https://unsplash.com/photos/brown-rock-formation-on-sea-under-blue-sky-during-daytime-HbKDro4HrAY target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 799,
     video: 'https://www.youtube.com/embed/MtC34MJfYQI',
     description: `Puerto Rico, officially the Commonwealth of Puerto Rico and from 1898 to 1932 also called Porto Rico in English, is an unincorporated territory of the United States located in the northeast Caribbean Sea, approximately 1,000 miles (1,600 km) southeast of Miami, Florida.`,
@@ -182,16 +182,16 @@ export const destinations = [
     smallTitle: 'Canary Islands - Spain - Europe',
     image1: './assets/images/fuerteventura_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@miqul target="_blank" rel="nooperer noreferrer">Michal Mrozek</a> on <a href="https://unsplash.com/photos/calm-body-of-water-under-white-and-blue-sky-j7heFwsIq7U target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@miqul" target="_blank" rel="nooperer noreferrer">Michal Mrozek</a> on <a href="https://unsplash.com/photos/calm-body-of-water-under-white-and-blue-sky-j7heFwsIq7U target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/fuerteventura_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@paul_treubrodt target="_blank" rel="nooperer noreferrer">Paul Treubrodt</a> on <a href="https://unsplash.com/photos/green-trees-on-brown-mountain-near-body-of-water-during-daytime-IvtCvyLK6so target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@paul_treubrodt" target="_blank" rel="nooperer noreferrer">Paul Treubrodt</a> on <a href="https://unsplash.com/photos/green-trees-on-brown-mountain-near-body-of-water-during-daytime-IvtCvyLK6so target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/fuerteventura_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@mxm_gilbert target="_blank" rel="nooperer noreferrer">Maxime Gilbert</a> on <a href="https://unsplash.com/photos/white-house-on-mountain-zZ4fJWn3KW8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@mxm_gilbert" target="_blank" rel="nooperer noreferrer">Maxime Gilbert</a> on <a href="https://unsplash.com/photos/white-house-on-mountain-zZ4fJWn3KW8 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/fuerteventura_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@aabergkvist target="_blank" rel="nooperer noreferrer">Axel  Antas-Bergkvist</a> on <a href="https://unsplash.com/photos/aerial-view-of-beach-during-daytime-S4ci-LpiPJw target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@aabergkvist" target="_blank" rel="nooperer noreferrer">Axel  Antas-Bergkvist</a> on <a href="https://unsplash.com/photos/aerial-view-of-beach-during-daytime-S4ci-LpiPJw target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 799,
     video: 'https://www.youtube.com/embed/4QJ4ALxD978',
     description: `Fuerteventura is one of the Canary Islands, in the Atlantic Ocean and is part of the North Africa region, politically part of Spain. At 1,660 square kilometres (640 sq mi), it is the second largest of the Canary Islands, after Tenerife. As of 2019, Fuerteventura had 118,025 inhabitants. It was declared a biosphere reserve by UNESCO in May 2009.`,
@@ -202,16 +202,16 @@ export const destinations = [
     smallTitle: 'France - Europe',
     image1: './assets/images/reunion_1.jpg',
     image1AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@marie_rouilly target="_blank" rel="nooperer noreferrer">Marie Rouilly</a> on <a href="https://unsplash.com/photos/waterfalls-in-the-middle-of-the-forest-during-daytime-DA3_xqEqolc target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@marie_rouilly" target="_blank" rel="nooperer noreferrer">Marie Rouilly</a> on <a href="https://unsplash.com/photos/waterfalls-in-the-middle-of-the-forest-during-daytime-DA3_xqEqolc target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image2: './assets/images/reunion_2.jpg',
     image2AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@zhesterev target="_blank" rel="nooperer noreferrer">Sergey Zhesterev</a> on <a href="https://unsplash.com/photos/brown-and-gray-mountain-range-during-daytime-VJlLx10OYRo target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@zhesterev" target="_blank" rel="nooperer noreferrer">Sergey Zhesterev</a> on <a href="https://unsplash.com/photos/brown-and-gray-mountain-range-during-daytime-VJlLx10OYRo target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     image3: './assets/images/reunion_3.jpg',
     image3AuthorInfo:
-      'Photo by <a href="https://unsplash.com/@cozoe target="_blank" rel="nooperer noreferrer">Rémi Boudousquié</a> on <a href="https://unsplash.com/photos/black-whale-surfing-on-blue-sea-during-daytime-yAyYdRzXJPE target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@cozoe" target="_blank" rel="nooperer noreferrer">Rémi Boudousquié</a> on <a href="https://unsplash.com/photos/black-whale-surfing-on-blue-sea-during-daytime-yAyYdRzXJPE target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     imageBig: './assets/images/reunion_big.jpg',
     imageBigAuthorInfo:
-      'Photo by <a href="https://unsplash.com/@samule target="_blank" rel="nooperer noreferrer">Samule Sun</a> on <a href="https://unsplash.com/photos/photograph-of-island-Mwg_MdX-Jx4 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
+      'Photo by <a href="https://unsplash.com/@samule" target="_blank" rel="nooperer noreferrer">Samule Sun</a> on <a href="https://unsplash.com/photos/photograph-of-island-Mwg_MdX-Jx4 target="_blank" rel="nooperer noreferrer">Unsplash</a>',
     price: 1200,
     video: 'https://www.youtube.com/embed/g0mwkiXIaBo',
     description:
