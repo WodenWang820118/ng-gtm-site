@@ -5,7 +5,7 @@ import { DestinationService } from '../../services/destination/destination.servi
 import { SharedService } from '../../services/shared/shared.service';
 import { AnalyticsService } from '../../services/analytics/analytics.service';
 import { NavigationService } from '../../../app/services/navigation/navigation.service';
-
+import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'app-carousel',
   standalone: true,
@@ -21,7 +21,8 @@ export class CarouselComponent implements AfterViewInit {
     private destinationService: DestinationService,
     public sharedService: SharedService,
     private analyticsService: AnalyticsService,
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngAfterViewInit(): void {
@@ -53,5 +54,13 @@ export class CarouselComponent implements AfterViewInit {
   selectPromotion(destination: any): void {
     console.log('selectPromotion', destination);
     this.analyticsService.trackEvent('select_promotion', destination);
+  }
+
+  preventDefault(event: any): void {
+    event.stopPropagation();
+  }
+
+  authorInforByPassed(info: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(info);
   }
 }

@@ -42,18 +42,34 @@
         @if (((windowSizeService.width$ | async) ?? 0) > 480) {
         <div class="col-md-3">
           <img src="{{ destination.image1 }}" class="img-thumbnail" alt="" />
+          <div
+            class="author"
+            [innerHTML]="authorInforByPassed(destination.image1AuthorInfo)"
+          ></div>
         </div>
         } @if (((windowSizeService.width$ | async) ?? 0) > 480) {
         <div class="col-md-3">
           <img src="{{ destination.image2 }}" class="img-thumbnail" alt="" />
+          <div
+            class="author"
+            [innerHTML]="authorInforByPassed(destination.image2AuthorInfo)"
+          ></div>
         </div>
         } @if (((windowSizeService.width$ | async) ?? 0) > 480) {
         <div class="col-md-3">
           <img src="{{ destination.image3 }}" class="img-thumbnail" alt="" />
+          <div
+            class="author"
+            [innerHTML]="authorInforByPassed(destination.image3AuthorInfo)"
+          ></div>
         </div>
         } @if (((windowSizeService.width$ | async) ?? 0) <= 480) {
         <div class="col-6">
-          <img src="{{ destination.imageBig }}" class="img-thumbnail" alt="" />
+          <img src="{{ destination.image3 }}" class="img-thumbnail" alt="" />
+          <div
+            class="author"
+            [innerHTML]="authorInforByPassed(destination.image3AuthorInfo)"
+          ></div>
         </div>
         }
         <div class="col-md-3">
