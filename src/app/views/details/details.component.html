@@ -51,18 +51,26 @@
     <div class="flex-grow-1 p-3">
       <div>
         <img
-          class="img-thumbnail"
+          class="img-thumbnail img-main"
           src="{{ (destination$ | async)?.imageBig }}"
           alt=""
         />
       </div>
       @if ((windowSizeService.width$ | async) ?? 0 > 480) {
-      <div class="d-flex flex-row justify-content-center mx-3">
-        <div class="flex-grow-1 img-thumbnail">
-          <img src="{{ (destination$ | async)?.image2 }}" alt="" />
+      <div class="d-flex flex-row justify-content-between">
+        <div class="img-thumbnail">
+          <img
+            class="img-sub"
+            src="{{ (destination$ | async)?.image2 }}"
+            alt=""
+          />
         </div>
-        <div class="flex-grow-1 img-thumbnail">
-          <img src="{{ (destination$ | async)?.image3 }}" alt="" />
+        <div class="img-thumbnail">
+          <img
+            class="img-sub"
+            src="{{ (destination$ | async)?.image3 }}"
+            alt=""
+          />
         </div>
       </div>
       } @else {
