@@ -6,7 +6,6 @@
     </caption>
     <tr>
       <th>Ref.</th>
-      <th>Category</th>
       <th>Name</th>
       <th>Price Per Person</th>
       <th>Quantity</th>
@@ -14,14 +13,13 @@
     </tr>
     <tbody>
       @for (item of orders$ | async; track item) {
-        <tr>
-          <td>{{ item.id }}</td>
-          <td>{{ item.category }}</td>
-          <td>{{ item.title }}</td>
-          <td>${{ item.value }}</td>
-          <td>{{ item.quantity }}</td>
-          <td>${{ item.value * item.quantity }}</td>
-        </tr>
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.title }}</td>
+        <td>${{ item.value }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>${{ item.value * item.quantity }}</td>
+      </tr>
       }
     </tbody>
     <tfoot>

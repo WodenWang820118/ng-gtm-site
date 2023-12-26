@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import '../../../styles.scss';
 
 @media screen and (max-width: $mobile-max-width) {
   .rwd-mobile {
@@ -16,4 +16,14 @@
     position: relative;
     right: 0;
   }
+}
+
+.img-main {
+  width: 500px;
+  object-fit: cover;
+}
+
+.img-sub {
+  width: 170px;
+  object-fit: cover;
 }
