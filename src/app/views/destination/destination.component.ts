@@ -14,6 +14,7 @@ import { SharedModule } from '../../shared.module';
 import { SearchService } from '../../services/search/search.service';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { YoutubeService } from '../../services/youtube/youtube.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-destination',
@@ -44,7 +45,8 @@ export class DestinationComponent {
     public windowSizeService: WindowSizeService,
     private navigationService: NavigationService,
     public searchService: SearchService,
-    private youtubeService: YoutubeService
+    private youtubeService: YoutubeService,
+    private sanitizer: DomSanitizer
   ) {}
 
   navigateToHome() {
@@ -75,10 +77,6 @@ export class DestinationComponent {
     return url.split('/')[url.split('/').length - 1];
   }
 
-  get currentVideoId(): string {
-    return this.videoId;
-  }
-
   closeModal() {
     this.showVideoPlayer = false;
     this.videoPlayer.pauseVideo();
@@ -92,5 +90,9 @@ export class DestinationComponent {
 
   onStateChange(event: any) {
     this.youtubeService.trackVideoEvent(event);
+  }
+
+  authorInforByPassed(info: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(info);
   }
 }
