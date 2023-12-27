@@ -4,9 +4,6 @@
 
 - [Overview](#overview)
 - [Setting Up Google Tag Manager](#setting-up-google-tag-manager)
-- [How to Use (For Non-technical Users)](#how-to-use-for-non-technical-users)
-- [How to use (technical)](#how-to-use-technical)
-- [Quick GTM setup](#quick-gtm-setup)
 - [Javascript interface](#javascript-interface)
 - [Data streams differentiation](#data-streams-differentiation)
 - [Firebase SDK](#firebase-sdk)
@@ -43,27 +40,6 @@ For now, the app supports:
 ## Setting Up Google Tag Manager
 
 To configure Google Tag Manager for this project, please locate the file titled `GTM-NBMX2DWS_workspace<version>.json` in the project's root directory. This file contains the necessary settings for your GTM workspace. You can easily import this configuration into your GTM account. Once imported, select and follow the specific topics relevant to your needs. Also, please refer to the [data layer checker extension](https://chrome.google.com/webstore/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke) to inject your own GTM on the GitHub page.
-
-## How to Use (For Non-technical Users)
-
-This section guides you through running this project on your local machine without deep technical knowledge.
-
-Please install [data layer checker extension](https://chrome.google.com/webstore/detail/datalayer-checker/ffljdddodmkedhkcjhpmdajhjdbkogke) to inject the GTM ID on the [GitHub page](https://wodenwang820118.github.io/ng-gtm-site/#/). Then, you can send the data back to your GA4 property accordingly.
-
-## How to use (technical)
-
-1. First, install [npm and node.js](https://nodejs.org/en/download).
-2. Download the project.
-3. Open the terminal and go to the project folder.
-4. Run `npm install` to install the dependencies.
-5. Run `ng serve` for a dev server.
-6. Open the browser and go to `http://localhost:4200/`.
-
-The analytics code is in the `analytics.service.ts` file.
-
-## Quick GTM setup
-
-- In the project files, find the `tagging-plan.json`, and use the [automatic configuration tool](https://gtm-config-generator.netlify.app/) to import and generate the GTM configuration JSON file.
 
 ## Javascript interface
 
@@ -115,9 +91,9 @@ The enhanced measurement is unable to [differentiate data streams](#data-streams
 
 ### Overview
 
-Google is updating its offerings, including Consent Mode, to comply with regulations like GDPR and DMA. The Consent Mode V2 introduces additional settings to better control data usage and ensure lawful consent collection. This tool helps organizations adapt Google tags based on user consent, with new parameters like "Ad personalization" and "ad user data" for more refined control. Organizations in the European Economic Area using Google's advertising and measurement products must upgrade to [Consent Mode V2](https://developers.google.com/tag-platform/security/guides/consent#upgrade-consent-v2) by March 6, 2024, to maintain features and comply with DMA requirements​.
+Google is updating its offerings, including Consent Mode, to comply with regulations like GDPR and DMA. The Consent Mode V2 introduces additional settings to better control data usage and ensure lawful consent collection. This tool helps organizations adapt Google tags based on user consent, with new parameters like "Ad personalization" and "ad user data" for more refined control. Organizations in the European Economic Area using Google's advertising and measurement products must upgrade to [Consent Mode V2](https://developers.google.com/tag-platform/security/guides/consent#upgrade-consent-v2) by March 6, 2024, to maintain features and comply with DMA requirements​. You may load the GTM script dynamically based on the consent status or related logic. The implementation below ensures privacy primarily by using GTM.
 
-The implementation uses localStorage to store the consent status and uses the `gtm-templates-simo-ahava`[template](https://github.com/gtm-templates-simo-ahava) in GTM implementation. Here are some setup steps:
+The implementation uses localStorage to store the consent status and uses the `gtm-templates-simo-ahava`[template](https://github.com/gtm-templates-simo-ahava) in GTM implementation. Here are some setup steps in GTM:
 
 ### Consent tags using the template
 
