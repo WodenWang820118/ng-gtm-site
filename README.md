@@ -295,7 +295,3 @@ Utilizing [Docusaurus](https://docusaurus.io/), this project's [REAEMD.md](https
 ## License
 
 MIT
-
-```
-
-```
