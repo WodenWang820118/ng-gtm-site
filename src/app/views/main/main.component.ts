@@ -11,7 +11,6 @@ import {
 import { NavigationService } from '../../services/navigation/navigation.service';
 import { CookieConsentComponent } from '../../components/cookie-consent/cookie-consent.component';
 import { ConsentService } from '../../services/consent/consent.service';
-import { take, tap } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -40,18 +39,8 @@ export class MainComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.consentService.consent$
-      .pipe(
-        take(1),
-        tap((consent) => {
-          if (consent) {
-            this.showCookieModal = false;
-          } else {
-            this.showCookieModal = true;
-          }
-        })
-      )
-      .subscribe();
+    // show cookie consent modal if consent has not been confirmed
+    this.showCookieModal = !this.consentService.getConsentStatus();
   }
 
   navigateToDestinations() {
