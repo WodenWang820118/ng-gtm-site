@@ -290,7 +290,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Documentation as a static site (Experimental)
 
-Utilizing [Docusaurus](https://docusaurus.io/), this project's [REAEMD.md](https://ng-gtm-site-docs.netlify.app/) is transformed into a static website, which is hosted via Netlify. It is designed specifically for non-technical users, providing an easy-to-understand overview of the project and topics related to GTM, without the need for familiarity with GitHub or GitLab.
+Utilizing [Docusaurus](https://docusaurus.io/), this project's [REAEMD.md](https://ng-gtm-site-docs.netlify.app/docs/Overview) is transformed into a static website, which is hosted via Netlify. It is designed specifically for non-technical users, providing an easy-to-understand overview of the project and topics related to GTM, without the need for familiarity with GitHub or GitLab.
 
 ## License
 
