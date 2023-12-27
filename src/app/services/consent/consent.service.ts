@@ -20,8 +20,6 @@ export class ConsentService {
   });
 
   consentPreferences$ = this.consentPreferencesSubject.asObservable();
-  consentSubject = new BehaviorSubject<boolean>(false);
-  consent$ = this.consentSubject.asObservable();
 
   constructor() {}
 
@@ -100,6 +98,10 @@ export class ConsentService {
   }
 
   hasConsent() {
-    this.consentSubject.next(true);
+    localStorage.setItem('consent', 'true');
+  }
+
+  getConsentStatus() {
+    return JSON.parse(localStorage.getItem('consent') || 'false');
   }
 }
