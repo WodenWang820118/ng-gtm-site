@@ -156,11 +156,18 @@ Single Page Applications (SPAs) present unique challenges for scroll tracking du
 
 2. **Inaccuracy due to Lazy Loading**: Many SPAs implement lazy loading to improve performance, loading components only as needed. This can interfere with scroll tracking accuracy. For example, if the landing page defers loading of a carousel until it's in or near the viewport, the scroll depth might be reported as 100% prematurely, because the full content length wasn't considered at the initial calculation.
 
-To address these issues and achieve accurate scroll tracking across all parts of a SPA, the project adopts a custom solution. The approach involves:
+In addressing the scroll tracking issue within our Angular SPA, the logic is divided into three critical parts to ensure accurate and meaningful event firing:
 
-- **Custom HTML in GTM**: Instead of relying on the default settings, a custom HTML tag in Google Tag Manager (GTM) is used to monitor and report scroll depth. This allows for more precise control and ensures that scroll tracking is responsive to the SPA's dynamic content and navigation.
+### Detecting Completion of Lazy Loading
+The Angular SPA is designed to initially display a loading Div while deferring the loading of components. To track the completion of this process, the ngAfterViewChecked lifecycle hook is employed. This hook is part of Angular's change detection mechanism, which runs after every cycle of view checks. By implementing a check within this hook, the app continuously monitors the presence of the loading Div. Once this Div is no longer found in the DOM, it's interpreted that all deferred components have finished loading. This transition signifies that the page is fully rendered and interactive, marking an ideal point to initiate scroll tracking.
 
-By implementing this custom method, the project can more accurately track user engagement and scroll behavior throughout the entire SPA, regardless of how content is loaded or how users navigate between sections. You may involve the logic in the sample app.
+### Accurate Scroll Event Handling
+In pages where content length doesn't necessitate scrolling, traditional scroll tracking might inaccurately report a 100% scroll event. To address this, a custom JavaScript variable, as suggested by [Simo Ahava](https://www.simoahava.com/analytics/customize-scroll-depth-trigger/), is implemented. This variable introduces a refined logic that discerns between meaningful and unmeaningful scroll events. It accounts for various factors like the viewport size, content length, and user interaction to determine if a scroll event genuinely represents user engagement or is merely a default behavior in a non-scrollable context. By integrating this variable, the scroll tracking becomes more precise, only firing events that truly reflect user interaction and intent.
+
+By combining these two strategies, the Angular SPA not only ensures that all components are fully loaded before initiating scroll tracking but also refines the scroll tracking mechanism to report only meaningful interactions. This dual approach significantly enhances the accuracy of engagement metrics, providing more reliable data for understanding user behavior and optimizing the website experience.
+
+### Custom HTML script
+By implementing this custom method, the project can more accurately track user engagement and scroll behavior throughout the entire SPA, regardless of how content is loaded or how users navigate between sections. You may involve the logic in the sample app. The usual triggers would be `window loaded` for the initial page loading and the `history change` trigger when route changes.
 
 <details>
 <summary>Custom HTML</summary>
